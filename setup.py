@@ -1,9 +1,9 @@
 from distutils.core import setup, Extension
 
-module1 = Extension('parallel_pwm',
-                    sources = ['parallel_pwm.c'])
+module1 = Extension('gpioport_pwm',
+                    sources = ['gpioport_pwm.c'])
 
-setup (name = 'ParallelPWM',
+setup (name = 'gpioport_pwm',
        version = '1.0',
-       description = 'This is a demo package',
+       description = 'Implementation of PWM for GPIOPort in C',
        ext_modules = [module1])
