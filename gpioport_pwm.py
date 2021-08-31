@@ -35,21 +35,21 @@ class PWMCycle:
             
         ontime = self.cycletime*self.dutycycle
         offtime = self.cycletime - ontime
+        
+        portregisterbyte = self.gpioport.DlPortReadPortUchar(self.portregister)
+        bitmask = self.onstate << self.bitindex
+        byteresult = (bitmask ^ portregisterbyte)
             
         while not self._end_cycle.is_set():
             if not self._pause_cycle.is_set():
-                portregisterbyte = self.gpioport.DlPortReadPortUchar(self.portregister)
-                bitmask = self.onstate << self.bitindex
-                byteresult = (bitmask ^ portregisterbyte)
                 self.gpioport.DlPortWritePortUchar(self.portregister, byteresult)
                 ondelay = time.time() + ontime
                 while time.time() < ondelay:
                     pass
-                portregisterbyte = self.gpioport.DlPortReadPortUchar(self.portregister)
-                bitmask = self.onstate << self.bitindex
-                byteresult = (bitmask ^ portregisterbyte)
-                self.gpioport.DlPortWritePortUchar(self.portregister, byteresult)
-                ondelay = time.time() + ontime
+                #portregisterbyte = self.gpioport.DlPortReadPortUchar(self.portregister)
+                #bitmask = self.onstate << self.bitindex
+                #byteresult = (bitmask ^ portregisterbyte)
+                self.gpioport.DlPortWritePortUchar(self.portregister, portregisterbyte)
                 offdelay = time.time() + offtime
                 while time.time() < offdelay:
                     pass
