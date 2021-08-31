@@ -5,22 +5,22 @@ import time
 @cython.cclass
 class PWMCycle:
     
-    register: cython.long
+    portregister: cython.long
     bitindex: cython.uint
     onstate: cython.uint
-    cycletime: cython.ulongdouble
-    dutycycle: cython.ulongdouble
-    ontime: cython.ulongdouble
-    offtime: cython.ulongdouble
-    ondelay: cython.ulongdouble
-    offdelay: cython.ulongdouble
+    cycletime: cython.longdouble
+    dutycycle: cython.longdouble
+    ontime: cython.longdouble
+    offtime: cython.longdouble
+    ondelay: cython.longdouble
+    offdelay: cython.longdouble
     bitmask: cython.uint
     byteresult: cython.uint
-    registerbyte: cython.unit
+    portregisterbyte: cython.uint
     __dict__: cython.dict
     
-    def __init__(self, gpioport, register, bitindex, onstate, dutycycle, cycletime):
-        self.register = register
+    def __init__(self, gpioport, portregister, bitindex, onstate, dutycycle, cycletime):
+        self.portregister = portregister
         self.bitindex = bitindex
         self.onstate = onstate
         self.gpioport = gpioport
@@ -30,6 +30,7 @@ class PWMCycle:
         self._pwm_thread.daemon = True
         self._pwm_thread.start()
             
+    @cython.cfunc
     def runCycle(self):
             
         ontime = self.cycletime*self.dutycycle
@@ -37,17 +38,17 @@ class PWMCycle:
             
         while not self._end_cycle.is_set():
             if not self._pause_cycle.is_set():
-                register_byte = self.gpioport.DlPortReadPortUchar(self.register)
+                portregisterbyte = self.gpioport.DlPortReadPortUchar(self.portregister)
                 bitmask = self.onstate << self.bitindex
-                byteresult = (bitmask ^ register_byte)
-                self.gpioport.DlPortWritePortUchar(self.register, byteresult)
+                byteresult = (bitmask ^ portregisterbyte)
+                self.gpioport.DlPortWritePortUchar(self.portregister, byteresult)
                 ondelay = time.time() + ontime
                 while time.time() < ondelay:
                     pass
-                register_byte = self.gpioport.DlPortReadPortUchar(self.register)
+                portregisterbyte = self.gpioport.DlPortReadPortUchar(self.portregister)
                 bitmask = self.onstate << self.bitindex
-                byteresult = (bitmask ^ register_byte)
-                self.gpioport.DlPortWritePortUchar(self.register, byteresult)
+                byteresult = (bitmask ^ portregisterbyte)
+                self.gpioport.DlPortWritePortUchar(self.portregister, byteresult)
                 ondelay = time.time() + ontime
                 offdelay = time.time() + offtime
                 while time.time() < offdelay:
