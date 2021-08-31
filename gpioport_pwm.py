@@ -8,12 +8,12 @@ class PWMCycle:
     register: cython.long
     bitindex: cython.uint
     onstate: cython.uint
-    cycletime: cython.double
-    dutycycle: cython.double
-    ontime: cython.double
-    offtime: cython.double
-    ondelay: cython.double
-    offdelay: cython.double
+    cycletime: cython.ulongdouble
+    dutycycle: cython.ulongdouble
+    ontime: cython.ulongdouble
+    offtime: cython.ulongdouble
+    ondelay: cython.ulongdouble
+    offdelay: cython.ulongdouble
     bitmask: cython.uint
     byteresult: cython.uint
     registerbyte: cython.unit
@@ -39,16 +39,16 @@ class PWMCycle:
             bitmask = self.onstate << self.bitindex
             byteresult = (bitmask ^ register_byte)
             self.gpioport.DlPortWritePortUchar(self.register, byteresult)
-            ondelay = time.monotonic() + ontime
-            while time.monotonic() < ondelay:
+            ondelay = time.time() + ontime
+            while time.time() < ondelay:
                 pass
             register_byte = self.gpioport.DlPortReadPortUchar(self.register)
             bitmask = self.onstate << self.bitindex
             byteresult = (bitmask ^ register_byte)
             self.gpioport.DlPortWritePortUchar(self.register, byteresult)
-            ondelay = time.monotonic() + ontime
-            offdelay = time.monotonic() + offtime
-            while time.monotonic() < offdelay:
+            ondelay = time.time() + ontime
+            offdelay = time.time() + offtime
+            while time.time() < offdelay:
                 pass
                     
     def stopCycle(self):
