@@ -1,9 +1,8 @@
-from distutils.core import setup, Extension
+from setuptools import setup
+from Cython.Build import cythonize
 
-module1 = Extension('gpioport_pwm',
-                    sources = ['gpioport_pwm.c'])
-
-setup (name = 'gpioport_pwm',
-       version = '1.0',
-       description = 'Implementation of PWM for GPIOPort in C',
-       ext_modules = [module1])
+setup(
+    name='Cython PWM function',
+    ext_modules=cythonize("gpioport_pwm.py", compiler_directives={'language_level' : "3"}),
+    zip_safe=False,
+)
