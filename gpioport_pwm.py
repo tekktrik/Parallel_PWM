@@ -53,6 +53,9 @@ class PWMCycle:
                     
     def stopCycle(self):
         self._end_cycle.set()
+        
+    def restartCycle(self):
+        self._end_cycle.clear()
             
     def shouldStop(self):
         return self._end_cycle.is_set()
