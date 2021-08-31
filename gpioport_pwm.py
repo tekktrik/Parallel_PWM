@@ -25,6 +25,7 @@ class PWMCycle:
         self.onstate = onstate
         self.gpioport = gpioport
         self._end_cycle = threading.Event()
+        self._pause_cycle = threading.Event()
         self._pwm_thread = threading.Thread(target=self.runCycle, args=())
         self._pwm_thread.daemon = True
         self._pwm_thread.start()
@@ -35,27 +36,34 @@ class PWMCycle:
         offtime = self.cycletime - ontime
             
         while not self._end_cycle.is_set():
-            register_byte = self.gpioport.DlPortReadPortUchar(self.register)
-            bitmask = self.onstate << self.bitindex
-            byteresult = (bitmask ^ register_byte)
-            self.gpioport.DlPortWritePortUchar(self.register, byteresult)
-            ondelay = time.time() + ontime
-            while time.time() < ondelay:
-                pass
-            register_byte = self.gpioport.DlPortReadPortUchar(self.register)
-            bitmask = self.onstate << self.bitindex
-            byteresult = (bitmask ^ register_byte)
-            self.gpioport.DlPortWritePortUchar(self.register, byteresult)
-            ondelay = time.time() + ontime
-            offdelay = time.time() + offtime
-            while time.time() < offdelay:
-                pass
+            if not self._pause_cycle.is_set():
+                register_byte = self.gpioport.DlPortReadPortUchar(self.register)
+                bitmask = self.onstate << self.bitindex
+                byteresult = (bitmask ^ register_byte)
+                self.gpioport.DlPortWritePortUchar(self.register, byteresult)
+                ondelay = time.time() + ontime
+                while time.time() < ondelay:
+                    pass
+                register_byte = self.gpioport.DlPortReadPortUchar(self.register)
+                bitmask = self.onstate << self.bitindex
+                byteresult = (bitmask ^ register_byte)
+                self.gpioport.DlPortWritePortUchar(self.register, byteresult)
+                ondelay = time.time() + ontime
+                offdelay = time.time() + offtime
+                while time.time() < offdelay:
+                    pass
                     
     def stopCycle(self):
         self._end_cycle.set()
         
-    def restartCycle(self):
-        self._end_cycle.clear()
+    def pauseCycle(self):
+        self._pause_cycle.set()
+    
+    def unpauseCycle(self):
+        self._pause_cycle.clear()
             
-    def shouldStop(self):
+    def isStopped(self):
         return self._end_cycle.is_set()
+        
+    def isPaused(self):
+        return self._pause_cycle.is_set()
