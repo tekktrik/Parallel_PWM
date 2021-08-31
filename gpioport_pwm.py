@@ -3,7 +3,7 @@ import threading
 import time
 
 @cython.cclass
-class PWMCycle():
+class PWMCycle:
     
     register: cython.long
     bitindex: cython.uint
@@ -17,7 +17,7 @@ class PWMCycle():
     bitmask: cython.uint
     byteresult: cython.uint
     registerbyte: cython.unit
-    #dllstring: cython.p_char
+    __dict__: cython.dict
     
     def __init__(self, gpioport, register, bitindex, onstate, dutycycle, cycletime):
         self.register = register
