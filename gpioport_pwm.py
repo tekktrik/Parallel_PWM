@@ -44,10 +44,8 @@ class PWMCycle:
         offtime = self.cycletime - ontime
         
         portregisterbyte = pwm_gpioport.DlPortReadPortUchar(portregister)
-        print(bin(portregisterbyte))
         bitmask = 1 << bitindex
         byteresult = (bitmask ^ portregisterbyte)
-        print(bin(byteresult))
             
         while not self._end_cycle.is_set():
             if not self._pause_cycle.is_set():
@@ -55,12 +53,10 @@ class PWMCycle:
                 ondelay = time() + ontime
                 while time() < ondelay:
                     pass
-                print(time())
                 pwm_gpioport.DlPortWritePortUchar(portregister, portregisterbyte)
                 offdelay = time() + offtime
                 while time() < offdelay:
                     pass
-                print(time())
                     
     def stopCycle(self):
         self._end_cycle.set()
