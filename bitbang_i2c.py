@@ -53,6 +53,12 @@ class I2C:
         self._setSCL(False)
         
     @cython.ccall
+    def _repStartCond(self):
+        self._setSDA(True)
+        self._setSCL(True)
+        self._startCond()
+        
+    @cython.ccall
     def _endCond(self):
         self._setSCL(False)
         self._setSDA(False)
@@ -93,19 +99,27 @@ class I2C:
         return self._writeI2CByte(full_byte)
     
     def write(self, i2c_address, i2c_data):
+        self._startCond()
         status = self._writeAddressFrame(i2c_address, 0)
         if not status:
             return False
-        status = self._writeI2CByte(i2c_data)
-        if not status:
-            return False
+        for databyte in i2c_data:
+            status = self._writeI2CByte(i2c_data)
+            if not status:
+                return False
+            self._endCond()
         return True
         
-    def read(self, i2c_address):
+    def read(self, i2c_address, num_bytes=1):
+        bytelist = []
+        self._startCond()
         status = self._writeAddressFrame(i2c_address, 1)
         if not status:
             return False
-        data_read, status = self._readI2CByte()
-        if not status:
-            return False
+        for databyte in range(num_bytes):
+            data_read, status = self._readI2CByte()
+            if not status:
+                return False
+            bytelist.append(data_read)
+            self._endCond()
         return data_read
