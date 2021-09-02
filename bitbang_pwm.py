@@ -1,6 +1,5 @@
 import cython
 import threading
-from time import time
 
 class PWM:
 
@@ -71,6 +70,9 @@ class PWMCycle:
     
     @cython.cfunc
     def runCycle(self):
+        
+        if not cython.compiled:
+            from time import time
     
         portregister: cython.uint
         bitindex: cython.uchar
@@ -99,7 +101,7 @@ class PWMCycle:
             if not self._pause_cycle.is_set():
                 self.gpioport.DlPortWritePortUchar(portregister, byteresult)
                 ondelay = time() + ontime
-                while time() < ondelay:
+                while time(None) < ondelay:
                     pass
                 self.gpioport.DlPortWritePortUchar(portregister, portregisterbyte)
                 offdelay = time() + offtime
