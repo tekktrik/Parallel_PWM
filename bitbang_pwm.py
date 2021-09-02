@@ -3,6 +3,12 @@ import threading
 from time import time
 
 class PWM:
+
+    _port: object
+    _pin: object
+    _duty_cycle: cython.longdouble
+    cycle_time: cython.longdouble
+    _pwm_thread: object
     
     def __init__(self, gpio_port: object, pwm_pin: object, duty_cycle: cython.longdouble = 0, cycle_time: cython.longdouble = 0.02):
         self._port = gpio_port
@@ -45,11 +51,11 @@ class PWMCycle:
     
     gpioport: object
     gpiopin: object
-    pwm_gpioport: object
-    portregister: cython.long
-    bitindex: cython.uint
-    cycletime: cython.longdouble
     dutycycle: cython.longdouble
+    cycletime: cython.longdouble
+    _end_cycle: object
+    _pause_cycle: object
+    _pwm_thread: object
     __dict__: cython.dict
     
     def __init__(self, gpioport: object, gpiopin: object, dutycycle: cython.longdouble, cycletime: cython.longdouble):
@@ -65,11 +71,10 @@ class PWMCycle:
             
     def runCycle(self):
     
-        gpioport: object
         gpiopin: object
         pwm_gpioport: object
-        portregister: cython.long
-        bitindex: cython.uint
+        portregister: cython.uint
+        bitindex: cython.uchar
         cycletime: cython.longdouble
         dutycycle: cython.longdouble
     
@@ -77,29 +82,27 @@ class PWMCycle:
         offtime: cython.longdouble
         ondelay: cython.longdouble
         offdelay: cython.longdouble
-        bitmask: cython.uint
-        byteresult: cython.uint
-        portregisterbyte: cython.uint
+        bitmask: cython.uchar
+        byteresult: cython.uchar
+        portregisterbyte: cython.uchar
     
         portregister = self.gpiopin.register
         bitindex = self.gpiopin.bit_index
-        
-        pwm_gpioport = self.gpioport
             
         ontime = self.cycletime*self.dutycycle
         offtime = self.cycletime - ontime
         
-        portregisterbyte = pwm_gpioport.DlPortReadPortUchar(portregister)
+        portregisterbyte = self.pwm_gpioport.DlPortReadPortUchar(portregister)
         bitmask = 1 << bitindex
         byteresult = (bitmask ^ portregisterbyte)
             
         while not self._end_cycle.is_set():
             if not self._pause_cycle.is_set():
-                pwm_gpioport.DlPortWritePortUchar(portregister, byteresult)
+                self.pwm_gpioport.DlPortWritePortUchar(portregister, byteresult)
                 ondelay = time() + ontime
                 while time() < ondelay:
                     pass
-                pwm_gpioport.DlPortWritePortUchar(portregister, portregisterbyte)
+                self.pwm_gpioport.DlPortWritePortUchar(portregister, portregisterbyte)
                 offdelay = time() + offtime
                 while time() < offdelay:
                     pass
