@@ -5,12 +5,19 @@ class I2C:
     
     i2c_port: object
     sda_pin: object
+    scl_register: cython.ulong
+    sda_bitindex: cython.uchar
+    sda_isinvert: cython.bint
     scl_pin: object
+    scl_register: cython.ulong
+    scl_bitindex: cython.uchar
+    scl_isinvert: cython.bint
     __dict__: cython.dict
         
     def __init__(self, i2c_port: object, sda_pin: object, scl_pin: object):
         self.i2c_port = i2c_port
         self.portDLL = i2c_port._parallel_port
+        
         self.sda_pin = sda_pin
         self.sda_register = sda_pin.register
         self.sda_bitindex = sda_pin.bit_index
@@ -21,13 +28,13 @@ class I2C:
         self.scl_isinvert = scl_pin._hw_inverted
         
     @cython.cfunc
-    def _setPin(self, pin_register: cython.longdouble, pin_bitindex: cython.uint, pin_isinvert: cython.uint, value: cython.bint):
+    def _setPin(self, pin_register: cython.ulong, pin_bitindex: cython.uchar, pin_isinvert: cython.bint, value: cython.bint):
         
         portDLL: object
-        currentbyte: cython.uint
-        bit_mask: cython.uint
-        rev_mask: cython.uint
-        byte_result: cython.uint
+        currentbyte: cython.uchar
+        bit_mask: cython.uchar
+        rev_mask: cython.uchar
+        byte_result: cython.uchar
         
         portDLL = self.portDLL
         if pin_isinvert:
