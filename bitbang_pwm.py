@@ -43,6 +43,13 @@ class PWM:
 @cython.cclass
 class PWMCycle:
     
+    gpioport: object
+    gpiopin: object
+    pwm_gpioport: object
+    portregister: cython.long
+    bitindex: cython.uint
+    cycletime: cython.longdouble
+    dutycycle: cython.longdouble
     __dict__: cython.dict
     
     def __init__(self, gpioport: object, gpiopin: object, dutycycle: cython.longdouble, cycletime: cython.longdouble):
