@@ -4,12 +4,13 @@ import cython
 class I2C:
     
     i2c_port: object
+    portDLL: object
     sda_pin: object
-    scl_register: cython.ulong
+    sda_register: cython.uint
     sda_bitindex: cython.uchar
     sda_isinvert: cython.bint
     scl_pin: object
-    scl_register: cython.ulong
+    scl_register: cython.uint
     scl_bitindex: cython.uchar
     scl_isinvert: cython.bint
     __dict__: cython.dict
@@ -28,39 +29,37 @@ class I2C:
         self.scl_isinvert = scl_pin._hw_inverted
         
     @cython.cfunc
-    def _setPin(self, pin_register: cython.ulong, pin_bitindex: cython.uchar, pin_isinvert: cython.bint, value: cython.bint):
+    def _setPin(self, pin_register: cython.uint, pin_bitindex: cython.uchar, pin_isinvert: cython.bint, value: cython.bint):
         
-        portDLL: object
         currentbyte: cython.uchar
         bit_mask: cython.uchar
         rev_mask: cython.uchar
         byte_result: cython.uchar
         
-        portDLL = self.portDLL
         if pin_isinvert:
             value = not value
-        currentbyte = portDLL.DlReadPortReadUchar(pin_register)
+        currentbyte = self.portDLL.DlReadPortReadUchar(pin_register)
         bit_mask = 1 << pin_bitindex
         rev_mask = bit_mask ^ 0xFF
         if value:
             byte_result = (bit_mask | currentbyte)
         else:
             byte_result = (rev_mask & currentbyte)
-        portDLL.DlPortWritePortUchar(pin_register, byte_result)
+        self.portDLL.DlPortWritePortUchar(pin_register, byte_result)
     
     @cython.cfunc
-    def _setSDA(self, value: cython.uint):
+    def _setSDA(self, value: cython.bint):
         self._setPin(self.sda_register, self.sda_bitindex, self.sda_isinvert, value)
         
     @cython.cfunc   
-    def _setSCL(self, value: cython.uint):
+    def _setSCL(self, value: cython.bint):
         self._setPin(self.scl_register, self.scl_bitindex, self.scl_isinvert, value)
         
     @cython.cfunc
     def _getSDA(self) -> cython.bint:
     
-        currentbyte: cython.uint
-        isolated_bit: cython.uint
+        currentbyte: cython.uchar
+        isolated_bit: cython.uchar
         
         currentbyte = self.portDLL.DlReadPortReadUchar(self.sda_register)
         isolated_bit = (1 << self.sda_bitindex) & currentbyte
@@ -83,9 +82,10 @@ class I2C:
         self._setSDA(True)
         
     @cython.cfunc
-    def _writeI2CByte(self, i2cbyte: cython.uint) -> cython.bint:
+    def _writeI2CByte(self, i2cbyte: cython.bint) -> cython.bint:
     
-        nextbit: cython.uint
+        nextbit: cython.bint
+        bitindex: cython.uchar
     
         self._setSDA(False)
         for bitindex in range(7, -1, -1):
@@ -98,8 +98,8 @@ class I2C:
     @cython.cfunc
     def _readI2CByte(self) -> cython.uint:
     
-        current_byte: cython.uint
-        nextbit: cython.uint
+        current_byte: cython.uchar
+        nextbit: cython.bint
         isAck: cython.bint
     
         current_byte = 0
@@ -129,20 +129,17 @@ class I2C:
         self._setSDA(True)
     
     @cython.cfunc
-    def _writeAddressFrame(self, address_byte: cython.uint, rw_type: cython.bint) -> cython.bint:
+    def _writeAddressFrame(self, address_byte: cython.uchar, rw_type: cython.bint) -> cython.bint:
     
-        full_byte: cython.uint
+        return self._writeI2CByte((address_byte << 1) | rw_type)
     
-        full_byte = (address_byte << 1) | rw_type
-        return self._writeI2CByte(full_byte)
-    
-    def write(self: object, i2c_address: cython.uint, i2c_data: cython.uint, hold_device: cython.bint = False) -> cython.bint:
+    def write(self, i2c_address: cython.uchar, i2c_data: list, hold_device: cython.bint = False) -> cython.bint:
         
         status: cython.bint
-        databyte: cython.uint
+        databyte: cython.uchar
         
         self._startCond()
-        status = self._writeAddressFrame(i2c_address, 0)
+        status = self._writeAddressFrame(i2c_address, False)
         if not status:
             return False
         for databyte in i2c_data:
@@ -155,7 +152,7 @@ class I2C:
             self._endCond()
         return True
         
-    def read(self: object, i2c_address: cython.uint, num_bytes: cython.uint = 1, hold_device: cython.bint = False) -> cython.uint:
+    def read(self, i2c_address: cython.uchar, num_bytes: cython.uint = 1, hold_device: cython.bint = False) -> cython.uint:
         
         data_read: cython.uint
         status: cython.bint
@@ -163,7 +160,7 @@ class I2C:
         
         bytelist = []
         self._startCond()
-        status = self._writeAddressFrame(i2c_address, 1)
+        status = self._writeAddressFrame(i2c_address, True)
         if not status:
             return False
         for _ in range(num_bytes):
