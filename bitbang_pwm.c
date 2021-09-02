@@ -841,6 +841,7 @@ static const char *__pyx_f[] = {
 
 /*--- Type declarations ---*/
 struct __pyx_obj_11bitbang_pwm_PWMCycle;
+struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py;
 
 /* "bitbang_pwm.py":50
  * 
@@ -851,6 +852,7 @@ struct __pyx_obj_11bitbang_pwm_PWMCycle;
  */
 struct __pyx_obj_11bitbang_pwm_PWMCycle {
   PyObject_HEAD
+  struct __pyx_vtabstruct_11bitbang_pwm_PWMCycle *__pyx_vtab;
   PyObject *gpioport;
   PyObject *gpiopin;
   long double dutycycle;
@@ -861,6 +863,36 @@ struct __pyx_obj_11bitbang_pwm_PWMCycle {
   PyObject *__dict__;
 };
 
+
+/* "cfunc.to_py":64
+ * 
+ * @cname("__Pyx_CFunc_object____PWMCycle___to_py")
+ * cdef object __Pyx_CFunc_object____PWMCycle___to_py(object (*f)(PWMCycle) ):             # <<<<<<<<<<<<<<
+ *     def wrap(PWMCycle self):
+ *         """wrap(self: 'PWMCycle')"""
+ */
+struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py {
+  PyObject_HEAD
+  PyObject *(*__pyx_v_f)(struct __pyx_obj_11bitbang_pwm_PWMCycle *);
+};
+
+
+
+/* "bitbang_pwm.py":50
+ * 
+ * @cython.cclass
+ * class PWMCycle:             # <<<<<<<<<<<<<<
+ * 
+ *     gpioport: object
+ */
+
+struct __pyx_vtabstruct_11bitbang_pwm_PWMCycle {
+  PyObject *(*runCycle)(struct __pyx_obj_11bitbang_pwm_PWMCycle *);
+  PyObject *(*stopCycle)(struct __pyx_obj_11bitbang_pwm_PWMCycle *, int __pyx_skip_dispatch);
+  PyObject *(*pauseCycle)(struct __pyx_obj_11bitbang_pwm_PWMCycle *, int __pyx_skip_dispatch);
+  PyObject *(*unpauseCycle)(struct __pyx_obj_11bitbang_pwm_PWMCycle *, int __pyx_skip_dispatch);
+};
+static struct __pyx_vtabstruct_11bitbang_pwm_PWMCycle *__pyx_vtabptr_11bitbang_pwm_PWMCycle;
 
 /* --- Runtime support code (head) --- */
 /* Refnanny.proto */
@@ -1143,11 +1175,11 @@ static CYTHON_INLINE PyObject *__Pyx_GetItemInt_Fast(PyObject *o, Py_ssize_t i,
 /* HasAttr.proto */
 static CYTHON_INLINE int __Pyx_HasAttr(PyObject *, PyObject *);
 
-/* PyObjectGetAttrStrNoError.proto */
-static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStrNoError(PyObject* obj, PyObject* attr_name);
-
-/* SetupReduce.proto */
-static int __Pyx_setup_reduce(PyObject* type_obj);
+/* ArgTypeTest.proto */
+#define __Pyx_ArgTypeTest(obj, type, none_allowed, name, exact)\
+    ((likely((Py_TYPE(obj) == type) | (none_allowed && (obj == Py_None)))) ? 1 :\
+        __Pyx__ArgTypeTest(obj, type, name, exact))
+static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact);
 
 /* FetchCommonType.proto */
 static PyTypeObject* __Pyx_FetchCommonType(PyTypeObject* type);
@@ -1211,6 +1243,25 @@ static PyObject *__Pyx_CyFunction_New(PyMethodDef *ml,
                                       PyObject *closure,
                                       PyObject *module, PyObject *globals,
                                       PyObject* code);
+
+/* IncludeStringH.proto */
+#include <string.h>
+
+/* SetVTable.proto */
+static int __Pyx_SetVtable(PyObject *dict, void *vtable);
+
+/* PyObjectGetAttrStrNoError.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStrNoError(PyObject* obj, PyObject* attr_name);
+
+/* SetupReduce.proto */
+static int __Pyx_setup_reduce(PyObject* type_obj);
+
+/* PyObject_GenericGetAttrNoDict.proto */
+#if CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP && PY_VERSION_HEX < 0x03070000
+static CYTHON_INLINE PyObject* __Pyx_PyObject_GenericGetAttrNoDict(PyObject* obj, PyObject* attr_name);
+#else
+#define __Pyx_PyObject_GenericGetAttrNoDict PyObject_GenericGetAttr
+#endif
 
 /* SetNameInClass.proto */
 #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030500A1
@@ -1303,12 +1354,18 @@ static int __Pyx_check_binary_version(void);
 /* InitStrings.proto */
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
+static PyObject *__pyx_f_11bitbang_pwm_8PWMCycle_runCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto*/
+static PyObject *__pyx_f_11bitbang_pwm_8PWMCycle_stopCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
+static PyObject *__pyx_f_11bitbang_pwm_8PWMCycle_pauseCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
+static PyObject *__pyx_f_11bitbang_pwm_8PWMCycle_unpauseCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
 
 /* Module declarations from 'cython' */
 
 /* Module declarations from 'bitbang_pwm' */
 static PyTypeObject *__pyx_ptype_11bitbang_pwm_PWMCycle = 0;
+static PyTypeObject *__pyx_ptype___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py = 0;
 static PyObject *__pyx_f_11bitbang_pwm___pyx_unpickle_PWMCycle__set_state(struct __pyx_obj_11bitbang_pwm_PWMCycle *, PyObject *); /*proto*/
+static PyObject *__Pyx_CFunc_object____PWMCycle___to_py(PyObject *(*)(struct __pyx_obj_11bitbang_pwm_PWMCycle *)); /*proto*/
 #define __Pyx_MODULE_NAME "bitbang_pwm"
 extern int __pyx_module_is_main_bitbang_pwm;
 int __pyx_module_is_main_bitbang_pwm = 0;
@@ -1331,6 +1388,7 @@ static const char __pyx_k_port[] = "_port";
 static const char __pyx_k_self[] = "self";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_time[] = "time";
+static const char __pyx_k_wrap[] = "wrap";
 static const char __pyx_k_Event[] = "Event";
 static const char __pyx_k_clear[] = "clear";
 static const char __pyx_k_pin_2[] = "pin";
@@ -1343,7 +1401,6 @@ static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_is_set[] = "is_set";
 static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_object[] = "object";
-static const char __pyx_k_ontime[] = "ontime";
 static const char __pyx_k_pickle[] = "pickle";
 static const char __pyx_k_reduce[] = "__reduce__";
 static const char __pyx_k_return[] = "return";
@@ -1351,24 +1408,18 @@ static const char __pyx_k_setter[] = "setter";
 static const char __pyx_k_target[] = "target";
 static const char __pyx_k_update[] = "update";
 static const char __pyx_k_PWM_pin[] = "PWM.pin";
-static const char __pyx_k_bitmask[] = "bitmask";
 static const char __pyx_k_gpiopin[] = "gpiopin";
-static const char __pyx_k_offtime[] = "offtime";
-static const char __pyx_k_ondelay[] = "ondelay";
 static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_pwm_pin[] = "pwm_pin";
 static const char __pyx_k_PWMCycle[] = "PWMCycle";
-static const char __pyx_k_bitindex[] = "bitindex";
 static const char __pyx_k_endCycle[] = "endCycle";
 static const char __pyx_k_getstate[] = "__getstate__";
 static const char __pyx_k_gpioport[] = "gpioport";
 static const char __pyx_k_isPaused[] = "isPaused";
-static const char __pyx_k_offdelay[] = "offdelay";
 static const char __pyx_k_property[] = "property";
 static const char __pyx_k_pyx_type[] = "__pyx_type";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_register[] = "register";
-static const char __pyx_k_runCycle[] = "runCycle";
 static const char __pyx_k_setstate[] = "__setstate__";
 static const char __pyx_k_writePin[] = "writePin";
 static const char __pyx_k_bit_index[] = "bit_index";
@@ -1383,20 +1434,19 @@ static const char __pyx_k_stopCycle[] = "stopCycle";
 static const char __pyx_k_threading[] = "threading";
 static const char __pyx_k_PWM___init[] = "PWM.__init__";
 static const char __pyx_k_ValueError[] = "ValueError";
-static const char __pyx_k_byteresult[] = "byteresult";
 static const char __pyx_k_cycle_time[] = "cycle_time";
 static const char __pyx_k_duty_cycle[] = "duty_cycle";
 static const char __pyx_k_pauseCycle[] = "pauseCycle";
 static const char __pyx_k_pwm_thread[] = "_pwm_thread";
 static const char __pyx_k_pyx_result[] = "__pyx_result";
+static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_startCycle[] = "startCycle";
 static const char __pyx_k_PickleError[] = "PickleError";
 static const char __pyx_k_bitbang_pwm[] = "bitbang_pwm";
+static const char __pyx_k_cfunc_to_py[] = "cfunc.to_py";
 static const char __pyx_k_long_double[] = "long double";
 static const char __pyx_k_PWM_endCycle[] = "PWM.endCycle";
 static const char __pyx_k_duty_cycle_2[] = "_duty_cycle";
-static const char __pyx_k_portregister[] = "portregister";
-static const char __pyx_k_pwm_gpioport[] = "pwm_gpioport";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
 static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_unpauseCycle[] = "unpauseCycle";
@@ -1409,9 +1459,7 @@ static const char __pyx_k_bitbang_pwm_py[] = "bitbang_pwm.py";
 static const char __pyx_k_isOutputAllowed[] = "isOutputAllowed";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
-static const char __pyx_k_portregisterbyte[] = "portregisterbyte";
 static const char __pyx_k_PWMCycle_isPaused[] = "PWMCycle.isPaused";
-static const char __pyx_k_PWMCycle_runCycle[] = "PWMCycle.runCycle";
 static const char __pyx_k_PWMCycle_isStopped[] = "PWMCycle.isStopped";
 static const char __pyx_k_PWMCycle_stopCycle[] = "PWMCycle.stopCycle";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
@@ -1422,6 +1470,7 @@ static const char __pyx_k_PWMCycle_unpauseCycle[] = "PWMCycle.unpauseCycle";
 static const char __pyx_k_pyx_unpickle_PWMCycle[] = "__pyx_unpickle_PWMCycle";
 static const char __pyx_k_PWMCycle___reduce_cython[] = "PWMCycle.__reduce_cython__";
 static const char __pyx_k_PWMCycle___setstate_cython[] = "PWMCycle.__setstate_cython__";
+static const char __pyx_k_Pyx_CFunc_object____PWMCycle[] = "__Pyx_CFunc_object____PWMCycle___to_py.<locals>.wrap";
 static const char __pyx_k_Duty_cycle_must_be_between_0_and[] = "Duty cycle must be between 0 and 1";
 static const char __pyx_k_Incompatible_checksums_s_vs_0xa4[] = "Incompatible checksums (%s vs 0xa4e3695 = (_end_cycle, _pause_cycle, _pwm_thread, cycletime, dutycycle, gpiopin, gpioport))";
 static const char __pyx_k_PWM_output_is_not_available_on_t[] = "PWM output is not available on this pin; please use a pin capable of output";
@@ -1437,7 +1486,6 @@ static PyObject *__pyx_n_s_PWMCycle___setstate_cython;
 static PyObject *__pyx_n_s_PWMCycle_isPaused;
 static PyObject *__pyx_n_s_PWMCycle_isStopped;
 static PyObject *__pyx_n_s_PWMCycle_pauseCycle;
-static PyObject *__pyx_n_s_PWMCycle_runCycle;
 static PyObject *__pyx_n_s_PWMCycle_stopCycle;
 static PyObject *__pyx_n_s_PWMCycle_unpauseCycle;
 static PyObject *__pyx_n_s_PWM___init;
@@ -1447,16 +1495,15 @@ static PyObject *__pyx_kp_u_PWM_output_is_not_available_on_t;
 static PyObject *__pyx_n_s_PWM_pin;
 static PyObject *__pyx_n_s_PWM_startCycle;
 static PyObject *__pyx_n_s_PickleError;
+static PyObject *__pyx_n_s_Pyx_CFunc_object____PWMCycle;
 static PyObject *__pyx_n_s_Thread;
 static PyObject *__pyx_n_s_ValueError;
 static PyObject *__pyx_n_s_args;
 static PyObject *__pyx_n_s_bit_index;
 static PyObject *__pyx_n_s_bitbang_pwm;
 static PyObject *__pyx_kp_s_bitbang_pwm_py;
-static PyObject *__pyx_n_s_bitindex;
-static PyObject *__pyx_n_s_bitmask;
 static PyObject *__pyx_n_u_bool;
-static PyObject *__pyx_n_s_byteresult;
+static PyObject *__pyx_n_s_cfunc_to_py;
 static PyObject *__pyx_n_s_clear;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_cycle_time;
@@ -1486,21 +1533,14 @@ static PyObject *__pyx_n_s_module;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_new;
 static PyObject *__pyx_n_u_object;
-static PyObject *__pyx_n_s_offdelay;
-static PyObject *__pyx_n_s_offtime;
-static PyObject *__pyx_n_s_ondelay;
-static PyObject *__pyx_n_s_ontime;
 static PyObject *__pyx_n_s_parallel_port;
 static PyObject *__pyx_n_s_pauseCycle;
 static PyObject *__pyx_n_s_pickle;
 static PyObject *__pyx_n_s_pin;
 static PyObject *__pyx_n_s_pin_2;
 static PyObject *__pyx_n_s_port;
-static PyObject *__pyx_n_s_portregister;
-static PyObject *__pyx_n_s_portregisterbyte;
 static PyObject *__pyx_n_s_prepare;
 static PyObject *__pyx_n_s_property;
-static PyObject *__pyx_n_s_pwm_gpioport;
 static PyObject *__pyx_n_s_pwm_pin;
 static PyObject *__pyx_n_s_pwm_thread;
 static PyObject *__pyx_n_s_pyx_PickleError;
@@ -1509,13 +1549,13 @@ static PyObject *__pyx_n_s_pyx_result;
 static PyObject *__pyx_n_s_pyx_state;
 static PyObject *__pyx_n_s_pyx_type;
 static PyObject *__pyx_n_s_pyx_unpickle_PWMCycle;
+static PyObject *__pyx_n_s_pyx_vtable;
 static PyObject *__pyx_n_s_qualname;
 static PyObject *__pyx_n_s_reduce;
 static PyObject *__pyx_n_s_reduce_cython;
 static PyObject *__pyx_n_s_reduce_ex;
 static PyObject *__pyx_n_s_register;
 static PyObject *__pyx_n_s_return;
-static PyObject *__pyx_n_s_runCycle;
 static PyObject *__pyx_n_s_self;
 static PyObject *__pyx_n_s_set;
 static PyObject *__pyx_n_s_setstate;
@@ -1533,6 +1573,7 @@ static PyObject *__pyx_n_s_time;
 static PyObject *__pyx_n_s_unpauseCycle;
 static PyObject *__pyx_n_s_update;
 static PyObject *__pyx_n_s_use_setstate;
+static PyObject *__pyx_n_s_wrap;
 static PyObject *__pyx_n_s_writePin;
 static PyObject *__pyx_pf_11bitbang_pwm_3PWM___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_gpio_port, PyObject *__pyx_v_pwm_pin, long double __pyx_v_duty_cycle, long double __pyx_v_cycle_time); /* proto */
 static PyObject *__pyx_pf_11bitbang_pwm_3PWM_2pin(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
@@ -1542,16 +1583,17 @@ static PyObject *__pyx_pf_11bitbang_pwm_3PWM_8duty_cycle(CYTHON_UNUSED PyObject 
 static PyObject *__pyx_pf_11bitbang_pwm_3PWM_10startCycle(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_11bitbang_pwm_3PWM_12endCycle(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
 static int __pyx_pf_11bitbang_pwm_8PWMCycle___init__(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self, PyObject *__pyx_v_gpioport, PyObject *__pyx_v_gpiopin, long double __pyx_v_dutycycle, long double __pyx_v_cycletime); /* proto */
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2runCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_4stopCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_6pauseCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_8unpauseCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_10isStopped(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_12isPaused(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_14__reduce_cython__(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_16__setstate_cython__(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2stopCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_4pauseCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_6unpauseCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_8isStopped(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_10isPaused(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_12__reduce_cython__(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_14__setstate_cython__(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_11bitbang_pwm___pyx_unpickle_PWMCycle(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_11cfunc_dot_to_py_38__Pyx_CFunc_object____PWMCycle___to_py_wrap(PyObject *__pyx_self, struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self); /* proto */
 static PyObject *__pyx_tp_new_11bitbang_pwm_PWMCycle(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_int_172897941;
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_tuple__2;
@@ -2723,7 +2765,7 @@ static int __pyx_pf_11bitbang_pwm_8PWMCycle___init__(struct __pyx_obj_11bitbang_
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_runCycle); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CFunc_object____PWMCycle___to_py(((struct __pyx_vtabstruct_11bitbang_pwm_PWMCycle *)__pyx_v_self->__pyx_vtab)->runCycle); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_target, __pyx_t_3) < 0) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -2752,7 +2794,7 @@ static int __pyx_pf_11bitbang_pwm_8PWMCycle___init__(struct __pyx_obj_11bitbang_
  *         self._pwm_thread.daemon = True
  *         self._pwm_thread.start()             # <<<<<<<<<<<<<<
  * 
- *     def runCycle(self):
+ *     @cython.cfunc
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_pwm_thread, __pyx_n_s_start); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -2795,29 +2837,15 @@ static int __pyx_pf_11bitbang_pwm_8PWMCycle___init__(struct __pyx_obj_11bitbang_
   return __pyx_r;
 }
 
-/* "bitbang_pwm.py":72
- *         self._pwm_thread.start()
+/* "bitbang_pwm.py":73
  * 
+ *     @cython.cfunc
  *     def runCycle(self):             # <<<<<<<<<<<<<<
  * 
- *         gpiopin: object
+ *         portregister: cython.uint
  */
 
-/* Python wrapper */
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_3runCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_3runCycle = {"runCycle", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_3runCycle, METH_NOARGS, 0};
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_3runCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("runCycle (wrapper)", 0);
-  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_2runCycle(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2runCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
+static PyObject *__pyx_f_11bitbang_pwm_8PWMCycle_runCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
   unsigned int __pyx_v_portregister;
   unsigned char __pyx_v_bitindex;
   long double __pyx_v_ontime;
@@ -2846,33 +2874,33 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2runCycle(struct __pyx_obj_11b
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("runCycle", 0);
 
-  /* "bitbang_pwm.py":89
+  /* "bitbang_pwm.py":88
  *         portregisterbyte: cython.uchar
  * 
  *         portregister = self.gpiopin.register             # <<<<<<<<<<<<<<
  *         bitindex = self.gpiopin.bit_index
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->gpiopin, __pyx_n_s_register); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->gpiopin, __pyx_n_s_register); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_As_unsigned_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_unsigned_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 88, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_portregister = __pyx_t_2;
 
-  /* "bitbang_pwm.py":90
+  /* "bitbang_pwm.py":89
  * 
  *         portregister = self.gpiopin.register
  *         bitindex = self.gpiopin.bit_index             # <<<<<<<<<<<<<<
  * 
  *         ontime = self.cycletime*self.dutycycle
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->gpiopin, __pyx_n_s_bit_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->gpiopin, __pyx_n_s_bit_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_As_unsigned_char(__pyx_t_1); if (unlikely((__pyx_t_3 == (unsigned char)-1) && PyErr_Occurred())) __PYX_ERR(0, 90, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_unsigned_char(__pyx_t_1); if (unlikely((__pyx_t_3 == (unsigned char)-1) && PyErr_Occurred())) __PYX_ERR(0, 89, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_bitindex = __pyx_t_3;
 
-  /* "bitbang_pwm.py":92
+  /* "bitbang_pwm.py":91
  *         bitindex = self.gpiopin.bit_index
  * 
  *         ontime = self.cycletime*self.dutycycle             # <<<<<<<<<<<<<<
@@ -2881,60 +2909,57 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2runCycle(struct __pyx_obj_11b
  */
   __pyx_v_ontime = (__pyx_v_self->cycletime * __pyx_v_self->dutycycle);
 
-  /* "bitbang_pwm.py":93
+  /* "bitbang_pwm.py":92
  * 
  *         ontime = self.cycletime*self.dutycycle
  *         offtime = self.cycletime - ontime             # <<<<<<<<<<<<<<
  * 
- *         portregisterbyte = self.pwm_gpioport.DlPortReadPortUchar(portregister)
+ *         portregisterbyte = self.gpioport.DlPortReadPortUchar(portregister)
  */
   __pyx_v_offtime = (__pyx_v_self->cycletime - __pyx_v_ontime);
 
-  /* "bitbang_pwm.py":95
+  /* "bitbang_pwm.py":94
  *         offtime = self.cycletime - ontime
  * 
- *         portregisterbyte = self.pwm_gpioport.DlPortReadPortUchar(portregister)             # <<<<<<<<<<<<<<
+ *         portregisterbyte = self.gpioport.DlPortReadPortUchar(portregister)             # <<<<<<<<<<<<<<
  *         bitmask = 1 << bitindex
  *         byteresult = (bitmask ^ portregisterbyte)
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_pwm_gpioport); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->gpioport, __pyx_n_s_DlPortReadPortUchar); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_DlPortReadPortUchar); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_unsigned_int(__pyx_v_portregister); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_From_unsigned_int(__pyx_v_portregister); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 95, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
-    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_4);
     if (likely(__pyx_t_6)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
       __Pyx_INCREF(__pyx_t_6);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_5, function);
+      __Pyx_DECREF_SET(__pyx_t_4, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4);
+  __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_6, __pyx_t_5) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_3 = __Pyx_PyInt_As_unsigned_char(__pyx_t_1); if (unlikely((__pyx_t_3 == (unsigned char)-1) && PyErr_Occurred())) __PYX_ERR(0, 95, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_3 = __Pyx_PyInt_As_unsigned_char(__pyx_t_1); if (unlikely((__pyx_t_3 == (unsigned char)-1) && PyErr_Occurred())) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_portregisterbyte = __pyx_t_3;
 
-  /* "bitbang_pwm.py":96
+  /* "bitbang_pwm.py":95
  * 
- *         portregisterbyte = self.pwm_gpioport.DlPortReadPortUchar(portregister)
+ *         portregisterbyte = self.gpioport.DlPortReadPortUchar(portregister)
  *         bitmask = 1 << bitindex             # <<<<<<<<<<<<<<
  *         byteresult = (bitmask ^ portregisterbyte)
  * 
  */
   __pyx_v_bitmask = (1 << __pyx_v_bitindex);
 
-  /* "bitbang_pwm.py":97
- *         portregisterbyte = self.pwm_gpioport.DlPortReadPortUchar(portregister)
+  /* "bitbang_pwm.py":96
+ *         portregisterbyte = self.gpioport.DlPortReadPortUchar(portregister)
  *         bitmask = 1 << bitindex
  *         byteresult = (bitmask ^ portregisterbyte)             # <<<<<<<<<<<<<<
  * 
@@ -2942,80 +2967,77 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2runCycle(struct __pyx_obj_11b
  */
   __pyx_v_byteresult = (__pyx_v_bitmask ^ __pyx_v_portregisterbyte);
 
-  /* "bitbang_pwm.py":99
+  /* "bitbang_pwm.py":98
  *         byteresult = (bitmask ^ portregisterbyte)
  * 
  *         while not self._end_cycle.is_set():             # <<<<<<<<<<<<<<
  *             if not self._pause_cycle.is_set():
- *                 self.pwm_gpioport.DlPortWritePortUchar(portregister, byteresult)
+ *                 self.gpioport.DlPortWritePortUchar(portregister, byteresult)
  */
   while (1) {
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_end_cycle, __pyx_n_s_is_set); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 99, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_5);
-      if (likely(__pyx_t_4)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
-        __Pyx_INCREF(__pyx_t_4);
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_end_cycle, __pyx_n_s_is_set); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_5 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
+      if (likely(__pyx_t_5)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+        __Pyx_INCREF(__pyx_t_5);
         __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_5, function);
+        __Pyx_DECREF_SET(__pyx_t_4, function);
       }
     }
-    __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 98, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_8 = ((!__pyx_t_7) != 0);
     if (!__pyx_t_8) break;
 
-    /* "bitbang_pwm.py":100
+    /* "bitbang_pwm.py":99
  * 
  *         while not self._end_cycle.is_set():
  *             if not self._pause_cycle.is_set():             # <<<<<<<<<<<<<<
- *                 self.pwm_gpioport.DlPortWritePortUchar(portregister, byteresult)
+ *                 self.gpioport.DlPortWritePortUchar(portregister, byteresult)
  *                 ondelay = time() + ontime
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_pause_cycle, __pyx_n_s_is_set); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 100, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_5);
-      if (likely(__pyx_t_4)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
-        __Pyx_INCREF(__pyx_t_4);
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_pause_cycle, __pyx_n_s_is_set); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_5 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
+      if (likely(__pyx_t_5)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+        __Pyx_INCREF(__pyx_t_5);
         __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_5, function);
+        __Pyx_DECREF_SET(__pyx_t_4, function);
       }
     }
-    __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
+    __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 100, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 99, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_7 = ((!__pyx_t_8) != 0);
     if (__pyx_t_7) {
 
-      /* "bitbang_pwm.py":101
+      /* "bitbang_pwm.py":100
  *         while not self._end_cycle.is_set():
  *             if not self._pause_cycle.is_set():
- *                 self.pwm_gpioport.DlPortWritePortUchar(portregister, byteresult)             # <<<<<<<<<<<<<<
+ *                 self.gpioport.DlPortWritePortUchar(portregister, byteresult)             # <<<<<<<<<<<<<<
  *                 ondelay = time() + ontime
  *                 while time() < ondelay:
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_pwm_gpioport); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 101, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_DlPortWritePortUchar); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 101, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->gpioport, __pyx_n_s_DlPortWritePortUchar); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 100, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyInt_From_unsigned_int(__pyx_v_portregister); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 101, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_From_unsigned_int(__pyx_v_portregister); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 100, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = __Pyx_PyInt_From_unsigned_char(__pyx_v_byteresult); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 101, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyInt_From_unsigned_char(__pyx_v_byteresult); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 100, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_9 = NULL;
       __pyx_t_10 = 0;
@@ -3032,7 +3054,7 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2runCycle(struct __pyx_obj_11b
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_4)) {
         PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_t_5, __pyx_t_6};
-        __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -3042,7 +3064,7 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2runCycle(struct __pyx_obj_11b
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
         PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_t_5, __pyx_t_6};
-        __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -3050,7 +3072,7 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2runCycle(struct __pyx_obj_11b
       } else
       #endif
       {
-        __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 101, __pyx_L1_error)
+        __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 100, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
         if (__pyx_t_9) {
           __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -3061,21 +3083,21 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2runCycle(struct __pyx_obj_11b
         PyTuple_SET_ITEM(__pyx_t_11, 1+__pyx_t_10, __pyx_t_6);
         __pyx_t_5 = 0;
         __pyx_t_6 = 0;
-        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       }
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "bitbang_pwm.py":102
+      /* "bitbang_pwm.py":101
  *             if not self._pause_cycle.is_set():
- *                 self.pwm_gpioport.DlPortWritePortUchar(portregister, byteresult)
+ *                 self.gpioport.DlPortWritePortUchar(portregister, byteresult)
  *                 ondelay = time() + ontime             # <<<<<<<<<<<<<<
  *                 while time() < ondelay:
  *                     pass
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_time); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 102, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_time); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 101, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_11 = NULL;
       if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
@@ -3089,28 +3111,28 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2runCycle(struct __pyx_obj_11b
       }
       __pyx_t_1 = (__pyx_t_11) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_11) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = PyFloat_FromDouble(__pyx_v_ontime); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 102, __pyx_L1_error)
+      __pyx_t_4 = PyFloat_FromDouble(__pyx_v_ontime); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 101, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_11 = PyNumber_Add(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 102, __pyx_L1_error)
+      __pyx_t_11 = PyNumber_Add(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 101, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_12 = __pyx_PyFloat_AsDouble(__pyx_t_11); if (unlikely((__pyx_t_12 == (long double)-1) && PyErr_Occurred())) __PYX_ERR(0, 102, __pyx_L1_error)
+      __pyx_t_12 = __pyx_PyFloat_AsDouble(__pyx_t_11); if (unlikely((__pyx_t_12 == (long double)-1) && PyErr_Occurred())) __PYX_ERR(0, 101, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __pyx_v_ondelay = __pyx_t_12;
 
-      /* "bitbang_pwm.py":103
- *                 self.pwm_gpioport.DlPortWritePortUchar(portregister, byteresult)
+      /* "bitbang_pwm.py":102
+ *                 self.gpioport.DlPortWritePortUchar(portregister, byteresult)
  *                 ondelay = time() + ontime
  *                 while time() < ondelay:             # <<<<<<<<<<<<<<
  *                     pass
- *                 self.pwm_gpioport.DlPortWritePortUchar(portregister, portregisterbyte)
+ *                 self.gpioport.DlPortWritePortUchar(portregister, portregisterbyte)
  */
       while (1) {
-        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_time); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_time); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 102, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_1 = NULL;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
@@ -3124,171 +3146,168 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2runCycle(struct __pyx_obj_11b
         }
         __pyx_t_11 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
         __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-        if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 103, __pyx_L1_error)
+        if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 102, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = PyFloat_FromDouble(__pyx_v_ondelay); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L1_error)
+        __pyx_t_4 = PyFloat_FromDouble(__pyx_v_ondelay); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 102, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_1 = PyObject_RichCompare(__pyx_t_11, __pyx_t_4, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 103, __pyx_L1_error)
+        __pyx_t_1 = PyObject_RichCompare(__pyx_t_11, __pyx_t_4, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 103, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 102, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         if (!__pyx_t_7) break;
       }
 
-      /* "bitbang_pwm.py":105
+      /* "bitbang_pwm.py":104
  *                 while time() < ondelay:
  *                     pass
- *                 self.pwm_gpioport.DlPortWritePortUchar(portregister, portregisterbyte)             # <<<<<<<<<<<<<<
+ *                 self.gpioport.DlPortWritePortUchar(portregister, portregisterbyte)             # <<<<<<<<<<<<<<
  *                 offdelay = time() + offtime
  *                 while time() < offdelay:
  */
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_pwm_gpioport); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 105, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->gpioport, __pyx_n_s_DlPortWritePortUchar); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_DlPortWritePortUchar); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 105, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyInt_From_unsigned_int(__pyx_v_portregister); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 104, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = __Pyx_PyInt_From_unsigned_int(__pyx_v_portregister); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 105, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_6 = __Pyx_PyInt_From_unsigned_char(__pyx_v_portregisterbyte); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 105, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyInt_From_unsigned_char(__pyx_v_portregisterbyte); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 104, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_5 = NULL;
       __pyx_t_10 = 0;
-      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_11))) {
-        __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_11);
+      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+        __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
         if (likely(__pyx_t_5)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_11);
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
           __Pyx_INCREF(__pyx_t_5);
           __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_11, function);
+          __Pyx_DECREF_SET(__pyx_t_4, function);
           __pyx_t_10 = 1;
         }
       }
       #if CYTHON_FAST_PYCALL
-      if (PyFunction_Check(__pyx_t_11)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_4, __pyx_t_6};
-        __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
+      if (PyFunction_Check(__pyx_t_4)) {
+        PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_11, __pyx_t_6};
+        __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       } else
       #endif
       #if CYTHON_FAST_PYCCALL
-      if (__Pyx_PyFastCFunction_Check(__pyx_t_11)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_4, __pyx_t_6};
-        __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
+      if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
+        PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_11, __pyx_t_6};
+        __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       } else
       #endif
       {
-        __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 105, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 104, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         if (__pyx_t_5) {
           __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_5); __pyx_t_5 = NULL;
         }
-        __Pyx_GIVEREF(__pyx_t_4);
-        PyTuple_SET_ITEM(__pyx_t_9, 0+__pyx_t_10, __pyx_t_4);
+        __Pyx_GIVEREF(__pyx_t_11);
+        PyTuple_SET_ITEM(__pyx_t_9, 0+__pyx_t_10, __pyx_t_11);
         __Pyx_GIVEREF(__pyx_t_6);
         PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_10, __pyx_t_6);
-        __pyx_t_4 = 0;
+        __pyx_t_11 = 0;
         __pyx_t_6 = 0;
-        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       }
-      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "bitbang_pwm.py":106
+      /* "bitbang_pwm.py":105
  *                     pass
- *                 self.pwm_gpioport.DlPortWritePortUchar(portregister, portregisterbyte)
+ *                 self.gpioport.DlPortWritePortUchar(portregister, portregisterbyte)
  *                 offdelay = time() + offtime             # <<<<<<<<<<<<<<
  *                 while time() < offdelay:
  *                     pass
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_time); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 106, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_11);
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_time); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 105, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_9 = NULL;
-      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_11))) {
-        __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_11);
+      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+        __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_4);
         if (likely(__pyx_t_9)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_11);
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
           __Pyx_INCREF(__pyx_t_9);
           __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_11, function);
+          __Pyx_DECREF_SET(__pyx_t_4, function);
         }
       }
-      __pyx_t_1 = (__pyx_t_9) ? __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_t_9) : __Pyx_PyObject_CallNoArg(__pyx_t_11);
+      __pyx_t_1 = (__pyx_t_9) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_9) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-      __pyx_t_11 = PyFloat_FromDouble(__pyx_v_offtime); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 106, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_11);
-      __pyx_t_9 = PyNumber_Add(__pyx_t_1, __pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 106, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = PyFloat_FromDouble(__pyx_v_offtime); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 105, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_9 = PyNumber_Add(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 105, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-      __pyx_t_12 = __pyx_PyFloat_AsDouble(__pyx_t_9); if (unlikely((__pyx_t_12 == (long double)-1) && PyErr_Occurred())) __PYX_ERR(0, 106, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_12 = __pyx_PyFloat_AsDouble(__pyx_t_9); if (unlikely((__pyx_t_12 == (long double)-1) && PyErr_Occurred())) __PYX_ERR(0, 105, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __pyx_v_offdelay = __pyx_t_12;
 
-      /* "bitbang_pwm.py":107
- *                 self.pwm_gpioport.DlPortWritePortUchar(portregister, portregisterbyte)
+      /* "bitbang_pwm.py":106
+ *                 self.gpioport.DlPortWritePortUchar(portregister, portregisterbyte)
  *                 offdelay = time() + offtime
  *                 while time() < offdelay:             # <<<<<<<<<<<<<<
  *                     pass
  * 
  */
       while (1) {
-        __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_time); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 107, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_11);
+        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_time); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 106, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_1 = NULL;
-        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_11))) {
-          __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_11);
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+          __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_4);
           if (likely(__pyx_t_1)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_11);
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
             __Pyx_INCREF(__pyx_t_1);
             __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_11, function);
+            __Pyx_DECREF_SET(__pyx_t_4, function);
           }
         }
-        __pyx_t_9 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_11);
+        __pyx_t_9 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
         __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-        if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 107, __pyx_L1_error)
+        if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 106, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __pyx_t_11 = PyFloat_FromDouble(__pyx_v_offdelay); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 107, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_1 = PyObject_RichCompare(__pyx_t_9, __pyx_t_11, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __pyx_t_4 = PyFloat_FromDouble(__pyx_v_offdelay); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 106, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_1 = PyObject_RichCompare(__pyx_t_9, __pyx_t_4, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 107, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 106, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         if (!__pyx_t_7) break;
       }
 
-      /* "bitbang_pwm.py":100
+      /* "bitbang_pwm.py":99
  * 
  *         while not self._end_cycle.is_set():
  *             if not self._pause_cycle.is_set():             # <<<<<<<<<<<<<<
- *                 self.pwm_gpioport.DlPortWritePortUchar(portregister, byteresult)
+ *                 self.gpioport.DlPortWritePortUchar(portregister, byteresult)
  *                 ondelay = time() + ontime
  */
     }
   }
 
-  /* "bitbang_pwm.py":72
- *         self._pwm_thread.start()
+  /* "bitbang_pwm.py":73
  * 
+ *     @cython.cfunc
  *     def runCycle(self):             # <<<<<<<<<<<<<<
  * 
- *         gpiopin: object
+ *         portregister: cython.uint
  */
 
   /* function exit code */
@@ -3302,7 +3321,7 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2runCycle(struct __pyx_obj_11b
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_11);
   __Pyx_AddTraceback("bitbang_pwm.PWMCycle.runCycle", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
+  __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -3310,44 +3329,78 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2runCycle(struct __pyx_obj_11b
 }
 
 /* "bitbang_pwm.py":110
- *                     pass
  * 
+ *     @cython.ccall
  *     def stopCycle(self):             # <<<<<<<<<<<<<<
  *         self._end_cycle.set()
  * 
  */
 
-/* Python wrapper */
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_5stopCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_5stopCycle = {"stopCycle", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_5stopCycle, METH_NOARGS, 0};
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_5stopCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("stopCycle (wrapper)", 0);
-  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_4stopCycle(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_4stopCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_3stopCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_f_11bitbang_pwm_8PWMCycle_stopCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self, int __pyx_skip_dispatch) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("stopCycle", 0);
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_stopCycle); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_11bitbang_pwm_8PWMCycle_3stopCycle)) {
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
+          __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+          if (likely(__pyx_t_4)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+            __Pyx_INCREF(__pyx_t_4);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_3, function);
+          }
+        }
+        __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+        __pyx_r = __pyx_t_2;
+        __pyx_t_2 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
 
   /* "bitbang_pwm.py":111
- * 
+ *     @cython.ccall
  *     def stopCycle(self):
  *         self._end_cycle.set()             # <<<<<<<<<<<<<<
  * 
- *     def pauseCycle(self):
+ *     @cython.ccall
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_end_cycle, __pyx_n_s_set); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -3369,8 +3422,8 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_4stopCycle(struct __pyx_obj_11
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "bitbang_pwm.py":110
- *                     pass
  * 
+ *     @cython.ccall
  *     def stopCycle(self):             # <<<<<<<<<<<<<<
  *         self._end_cycle.set()
  * 
@@ -3383,6 +3436,47 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_4stopCycle(struct __pyx_obj_11
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("bitbang_pwm.PWMCycle.stopCycle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_3stopCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_3stopCycle = {"stopCycle", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_3stopCycle, METH_NOARGS, 0};
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_3stopCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("stopCycle (wrapper)", 0);
+  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_2stopCycle(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_2stopCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("stopCycle", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_f_11bitbang_pwm_8PWMCycle_stopCycle(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
   __Pyx_AddTraceback("bitbang_pwm.PWMCycle.stopCycle", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -3391,47 +3485,81 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_4stopCycle(struct __pyx_obj_11
   return __pyx_r;
 }
 
-/* "bitbang_pwm.py":113
- *         self._end_cycle.set()
+/* "bitbang_pwm.py":114
  * 
+ *     @cython.ccall
  *     def pauseCycle(self):             # <<<<<<<<<<<<<<
  *         self._pause_cycle.set()
  * 
  */
 
-/* Python wrapper */
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_7pauseCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_7pauseCycle = {"pauseCycle", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_7pauseCycle, METH_NOARGS, 0};
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_7pauseCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("pauseCycle (wrapper)", 0);
-  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_6pauseCycle(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_6pauseCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_5pauseCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_f_11bitbang_pwm_8PWMCycle_pauseCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self, int __pyx_skip_dispatch) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("pauseCycle", 0);
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_pauseCycle); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_11bitbang_pwm_8PWMCycle_5pauseCycle)) {
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
+          __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+          if (likely(__pyx_t_4)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+            __Pyx_INCREF(__pyx_t_4);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_3, function);
+          }
+        }
+        __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 114, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+        __pyx_r = __pyx_t_2;
+        __pyx_t_2 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
 
-  /* "bitbang_pwm.py":114
- * 
+  /* "bitbang_pwm.py":115
+ *     @cython.ccall
  *     def pauseCycle(self):
  *         self._pause_cycle.set()             # <<<<<<<<<<<<<<
  * 
- *     def unpauseCycle(self):
+ *     @cython.ccall
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_pause_cycle, __pyx_n_s_set); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_pause_cycle, __pyx_n_s_set); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3445,14 +3573,14 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_6pauseCycle(struct __pyx_obj_1
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "bitbang_pwm.py":113
- *         self._end_cycle.set()
+  /* "bitbang_pwm.py":114
  * 
+ *     @cython.ccall
  *     def pauseCycle(self):             # <<<<<<<<<<<<<<
  *         self._pause_cycle.set()
  * 
@@ -3465,6 +3593,47 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_6pauseCycle(struct __pyx_obj_1
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("bitbang_pwm.PWMCycle.pauseCycle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_5pauseCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_5pauseCycle = {"pauseCycle", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_5pauseCycle, METH_NOARGS, 0};
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_5pauseCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("pauseCycle (wrapper)", 0);
+  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_4pauseCycle(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_4pauseCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("pauseCycle", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_f_11bitbang_pwm_8PWMCycle_pauseCycle(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
   __Pyx_AddTraceback("bitbang_pwm.PWMCycle.pauseCycle", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -3473,47 +3642,81 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_6pauseCycle(struct __pyx_obj_1
   return __pyx_r;
 }
 
-/* "bitbang_pwm.py":116
- *         self._pause_cycle.set()
+/* "bitbang_pwm.py":118
  * 
+ *     @cython.ccall
  *     def unpauseCycle(self):             # <<<<<<<<<<<<<<
  *         self._pause_cycle.clear()
  * 
  */
 
-/* Python wrapper */
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_9unpauseCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_9unpauseCycle = {"unpauseCycle", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_9unpauseCycle, METH_NOARGS, 0};
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_9unpauseCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("unpauseCycle (wrapper)", 0);
-  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_8unpauseCycle(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_8unpauseCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_7unpauseCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_f_11bitbang_pwm_8PWMCycle_unpauseCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self, int __pyx_skip_dispatch) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("unpauseCycle", 0);
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_unpauseCycle); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_11bitbang_pwm_8PWMCycle_7unpauseCycle)) {
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
+          __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+          if (likely(__pyx_t_4)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+            __Pyx_INCREF(__pyx_t_4);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_3, function);
+          }
+        }
+        __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 118, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+        __pyx_r = __pyx_t_2;
+        __pyx_t_2 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
 
-  /* "bitbang_pwm.py":117
- * 
+  /* "bitbang_pwm.py":119
+ *     @cython.ccall
  *     def unpauseCycle(self):
  *         self._pause_cycle.clear()             # <<<<<<<<<<<<<<
  * 
  *     def isStopped(self) -> cython.bint:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_pause_cycle, __pyx_n_s_clear); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_pause_cycle, __pyx_n_s_clear); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3527,14 +3730,14 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_8unpauseCycle(struct __pyx_obj
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 117, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "bitbang_pwm.py":116
- *         self._pause_cycle.set()
+  /* "bitbang_pwm.py":118
  * 
+ *     @cython.ccall
  *     def unpauseCycle(self):             # <<<<<<<<<<<<<<
  *         self._pause_cycle.clear()
  * 
@@ -3547,6 +3750,47 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_8unpauseCycle(struct __pyx_obj
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("bitbang_pwm.PWMCycle.unpauseCycle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_7unpauseCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_7unpauseCycle = {"unpauseCycle", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_7unpauseCycle, METH_NOARGS, 0};
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_7unpauseCycle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("unpauseCycle (wrapper)", 0);
+  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_6unpauseCycle(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_6unpauseCycle(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("unpauseCycle", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_f_11bitbang_pwm_8PWMCycle_unpauseCycle(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
   __Pyx_AddTraceback("bitbang_pwm.PWMCycle.unpauseCycle", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -3555,7 +3799,7 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_8unpauseCycle(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "bitbang_pwm.py":119
+/* "bitbang_pwm.py":121
  *         self._pause_cycle.clear()
  * 
  *     def isStopped(self) -> cython.bint:             # <<<<<<<<<<<<<<
@@ -3564,20 +3808,20 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_8unpauseCycle(struct __pyx_obj
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_11isStopped(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_11isStopped = {"isStopped", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_11isStopped, METH_NOARGS, 0};
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_11isStopped(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_9isStopped(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_9isStopped = {"isStopped", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_9isStopped, METH_NOARGS, 0};
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_9isStopped(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("isStopped (wrapper)", 0);
-  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_10isStopped(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self));
+  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_8isStopped(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_10isStopped(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
+static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_8isStopped(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3588,7 +3832,7 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_10isStopped(struct __pyx_obj_1
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("isStopped", 0);
 
-  /* "bitbang_pwm.py":120
+  /* "bitbang_pwm.py":122
  * 
  *     def isStopped(self) -> cython.bint:
  *         return self._end_cycle.is_set()             # <<<<<<<<<<<<<<
@@ -3596,7 +3840,7 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_10isStopped(struct __pyx_obj_1
  *     def isPaused(self) -> cython.bint:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_end_cycle, __pyx_n_s_is_set); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_end_cycle, __pyx_n_s_is_set); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3610,14 +3854,14 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_10isStopped(struct __pyx_obj_1
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "bitbang_pwm.py":119
+  /* "bitbang_pwm.py":121
  *         self._pause_cycle.clear()
  * 
  *     def isStopped(self) -> cython.bint:             # <<<<<<<<<<<<<<
@@ -3638,7 +3882,7 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_10isStopped(struct __pyx_obj_1
   return __pyx_r;
 }
 
-/* "bitbang_pwm.py":122
+/* "bitbang_pwm.py":124
  *         return self._end_cycle.is_set()
  * 
  *     def isPaused(self) -> cython.bint:             # <<<<<<<<<<<<<<
@@ -3646,20 +3890,20 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_10isStopped(struct __pyx_obj_1
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_13isPaused(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_13isPaused = {"isPaused", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_13isPaused, METH_NOARGS, 0};
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_13isPaused(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_11isPaused(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_11isPaused = {"isPaused", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_11isPaused, METH_NOARGS, 0};
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_11isPaused(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("isPaused (wrapper)", 0);
-  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_12isPaused(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self));
+  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_10isPaused(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_12isPaused(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
+static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_10isPaused(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3670,13 +3914,13 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_12isPaused(struct __pyx_obj_11
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("isPaused", 0);
 
-  /* "bitbang_pwm.py":123
+  /* "bitbang_pwm.py":125
  * 
  *     def isPaused(self) -> cython.bint:
  *         return self._pause_cycle.is_set()             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_pause_cycle, __pyx_n_s_is_set); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_pause_cycle, __pyx_n_s_is_set); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3690,14 +3934,14 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_12isPaused(struct __pyx_obj_11
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "bitbang_pwm.py":122
+  /* "bitbang_pwm.py":124
  *         return self._end_cycle.is_set()
  * 
  *     def isPaused(self) -> cython.bint:             # <<<<<<<<<<<<<<
@@ -3724,20 +3968,20 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_12isPaused(struct __pyx_obj_11
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_15__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_15__reduce_cython__ = {"__reduce_cython__", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_15__reduce_cython__, METH_NOARGS, 0};
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_15__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_13__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_13__reduce_cython__ = {"__reduce_cython__", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_13__reduce_cython__, METH_NOARGS, 0};
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_13__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_14__reduce_cython__(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self));
+  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_12__reduce_cython__(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_14__reduce_cython__(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
+static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_12__reduce_cython__(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
   PyObject *__pyx_v_state = 0;
   PyObject *__pyx_v__dict = 0;
   int __pyx_v_use_setstate;
@@ -4014,20 +4258,20 @@ static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_14__reduce_cython__(struct __p
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_17__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_17__setstate_cython__ = {"__setstate_cython__", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_17__setstate_cython__, METH_O, 0};
-static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_17__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_15__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyMethodDef __pyx_mdef_11bitbang_pwm_8PWMCycle_15__setstate_cython__ = {"__setstate_cython__", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_15__setstate_cython__, METH_O, 0};
+static PyObject *__pyx_pw_11bitbang_pwm_8PWMCycle_15__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_16__setstate_cython__(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_11bitbang_pwm_8PWMCycle_14__setstate_cython__(((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_16__setstate_cython__(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_11bitbang_pwm_8PWMCycle_14__setstate_cython__(struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4523,6 +4767,157 @@ static PyObject *__pyx_f_11bitbang_pwm___pyx_unpickle_PWMCycle__set_state(struct
   return __pyx_r;
 }
 
+/* "cfunc.to_py":65
+ * @cname("__Pyx_CFunc_object____PWMCycle___to_py")
+ * cdef object __Pyx_CFunc_object____PWMCycle___to_py(object (*f)(PWMCycle) ):
+ *     def wrap(PWMCycle self):             # <<<<<<<<<<<<<<
+ *         """wrap(self: 'PWMCycle')"""
+ *         return f(self)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_11cfunc_dot_to_py_38__Pyx_CFunc_object____PWMCycle___to_py_1wrap(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static char __pyx_doc_11cfunc_dot_to_py_38__Pyx_CFunc_object____PWMCycle___to_py_wrap[] = "wrap(self: 'PWMCycle')";
+static PyMethodDef __pyx_mdef_11cfunc_dot_to_py_38__Pyx_CFunc_object____PWMCycle___to_py_1wrap = {"wrap", (PyCFunction)__pyx_pw_11cfunc_dot_to_py_38__Pyx_CFunc_object____PWMCycle___to_py_1wrap, METH_O, __pyx_doc_11cfunc_dot_to_py_38__Pyx_CFunc_object____PWMCycle___to_py_wrap};
+static PyObject *__pyx_pw_11cfunc_dot_to_py_38__Pyx_CFunc_object____PWMCycle___to_py_1wrap(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("wrap (wrapper)", 0);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_self), __pyx_ptype_11bitbang_pwm_PWMCycle, 1, "self", 0))) __PYX_ERR(1, 65, __pyx_L1_error)
+  __pyx_r = __pyx_pf_11cfunc_dot_to_py_38__Pyx_CFunc_object____PWMCycle___to_py_wrap(__pyx_self, ((struct __pyx_obj_11bitbang_pwm_PWMCycle *)__pyx_v_self));
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_11cfunc_dot_to_py_38__Pyx_CFunc_object____PWMCycle___to_py_wrap(PyObject *__pyx_self, struct __pyx_obj_11bitbang_pwm_PWMCycle *__pyx_v_self) {
+  struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py *__pyx_cur_scope;
+  struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py *__pyx_outer_scope;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("wrap", 0);
+  __pyx_outer_scope = (struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py *) __Pyx_CyFunction_GetClosure(__pyx_self);
+  __pyx_cur_scope = __pyx_outer_scope;
+
+  /* "cfunc.to_py":67
+ *     def wrap(PWMCycle self):
+ *         """wrap(self: 'PWMCycle')"""
+ *         return f(self)             # <<<<<<<<<<<<<<
+ *     return wrap
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_cur_scope->__pyx_v_f(__pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 67, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "cfunc.to_py":65
+ * @cname("__Pyx_CFunc_object____PWMCycle___to_py")
+ * cdef object __Pyx_CFunc_object____PWMCycle___to_py(object (*f)(PWMCycle) ):
+ *     def wrap(PWMCycle self):             # <<<<<<<<<<<<<<
+ *         """wrap(self: 'PWMCycle')"""
+ *         return f(self)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("cfunc.to_py.__Pyx_CFunc_object____PWMCycle___to_py.wrap", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "cfunc.to_py":64
+ * 
+ * @cname("__Pyx_CFunc_object____PWMCycle___to_py")
+ * cdef object __Pyx_CFunc_object____PWMCycle___to_py(object (*f)(PWMCycle) ):             # <<<<<<<<<<<<<<
+ *     def wrap(PWMCycle self):
+ *         """wrap(self: 'PWMCycle')"""
+ */
+
+static PyObject *__Pyx_CFunc_object____PWMCycle___to_py(PyObject *(*__pyx_v_f)(struct __pyx_obj_11bitbang_pwm_PWMCycle *)) {
+  struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py *__pyx_cur_scope;
+  PyObject *__pyx_v_wrap = 0;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__Pyx_CFunc_object____PWMCycle___to_py", 0);
+  __pyx_cur_scope = (struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py *)__pyx_tp_new___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py(__pyx_ptype___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py, __pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(1, 64, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF(__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_f = __pyx_v_f;
+
+  /* "cfunc.to_py":65
+ * @cname("__Pyx_CFunc_object____PWMCycle___to_py")
+ * cdef object __Pyx_CFunc_object____PWMCycle___to_py(object (*f)(PWMCycle) ):
+ *     def wrap(PWMCycle self):             # <<<<<<<<<<<<<<
+ *         """wrap(self: 'PWMCycle')"""
+ *         return f(self)
+ */
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_11cfunc_dot_to_py_38__Pyx_CFunc_object____PWMCycle___to_py_1wrap, 0, __pyx_n_s_Pyx_CFunc_object____PWMCycle, ((PyObject*)__pyx_cur_scope), __pyx_n_s_cfunc_to_py, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 65, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_v_wrap = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "cfunc.to_py":68
+ *         """wrap(self: 'PWMCycle')"""
+ *         return f(self)
+ *     return wrap             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_v_wrap);
+  __pyx_r = __pyx_v_wrap;
+  goto __pyx_L0;
+
+  /* "cfunc.to_py":64
+ * 
+ * @cname("__Pyx_CFunc_object____PWMCycle___to_py")
+ * cdef object __Pyx_CFunc_object____PWMCycle___to_py(object (*f)(PWMCycle) ):             # <<<<<<<<<<<<<<
+ *     def wrap(PWMCycle self):
+ *         """wrap(self: 'PWMCycle')"""
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("cfunc.to_py.__Pyx_CFunc_object____PWMCycle___to_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_wrap);
+  __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static struct __pyx_vtabstruct_11bitbang_pwm_PWMCycle __pyx_vtable_11bitbang_pwm_PWMCycle;
+
 static PyObject *__pyx_tp_new_11bitbang_pwm_PWMCycle(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   struct __pyx_obj_11bitbang_pwm_PWMCycle *p;
   PyObject *o;
@@ -4533,6 +4928,7 @@ static PyObject *__pyx_tp_new_11bitbang_pwm_PWMCycle(PyTypeObject *t, CYTHON_UNU
   }
   if (unlikely(!o)) return 0;
   p = ((struct __pyx_obj_11bitbang_pwm_PWMCycle *)o);
+  p->__pyx_vtab = __pyx_vtabptr_11bitbang_pwm_PWMCycle;
   p->gpioport = Py_None; Py_INCREF(Py_None);
   p->gpiopin = Py_None; Py_INCREF(Py_None);
   p->_end_cycle = Py_None; Py_INCREF(Py_None);
@@ -4620,14 +5016,10 @@ static PyObject *__pyx___dict__getter_11bitbang_pwm_PWMCycle(PyObject *o, CYTHON
 }
 
 static PyMethodDef __pyx_methods_11bitbang_pwm_PWMCycle[] = {
-  {"runCycle", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_3runCycle, METH_NOARGS, 0},
-  {"stopCycle", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_5stopCycle, METH_NOARGS, 0},
-  {"pauseCycle", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_7pauseCycle, METH_NOARGS, 0},
-  {"unpauseCycle", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_9unpauseCycle, METH_NOARGS, 0},
-  {"isStopped", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_11isStopped, METH_NOARGS, 0},
-  {"isPaused", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_13isPaused, METH_NOARGS, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_15__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_17__setstate_cython__, METH_O, 0},
+  {"isStopped", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_9isStopped, METH_NOARGS, 0},
+  {"isPaused", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_11isPaused, METH_NOARGS, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_13__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_11bitbang_pwm_8PWMCycle_15__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
@@ -4685,6 +5077,99 @@ static PyTypeObject __pyx_type_11bitbang_pwm_PWMCycle = {
   __pyx_pw_11bitbang_pwm_8PWMCycle_1__init__, /*tp_init*/
   0, /*tp_alloc*/
   __pyx_tp_new_11bitbang_pwm_PWMCycle, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if PY_VERSION_HEX >= 0x030400a1
+  0, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1
+  0, /*tp_vectorcall*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4 && PY_VERSION_HEX < 0x03090000
+  0, /*tp_print*/
+  #endif
+};
+
+static struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py *__pyx_freelist___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py[8];
+static int __pyx_freecount___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py = 0;
+
+static PyObject *__pyx_tp_new___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py)))) {
+    o = (PyObject*)__pyx_freelist___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py[--__pyx_freecount___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py];
+    memset(o, 0, sizeof(struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py));
+    (void) PyObject_INIT(o, t);
+  } else {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  return o;
+}
+
+static void __pyx_tp_dealloc___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py(PyObject *o) {
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py)))) {
+    __pyx_freelist___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py[__pyx_freecount___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py++] = ((struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py *)o);
+  } else {
+    (*Py_TYPE(o)->tp_free)(o);
+  }
+}
+
+static PyTypeObject __pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "bitbang_pwm.__pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py", /*tp_name*/
+  sizeof(struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  #if PY_MAJOR_VERSION < 3
+  0, /*tp_compare*/
+  #endif
+  #if PY_MAJOR_VERSION >= 3
+  0, /*tp_as_async*/
+  #endif
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER, /*tp_flags*/
+  0, /*tp_doc*/
+  0, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  0, /*tp_dictoffset*/
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -4763,7 +5248,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_PWMCycle_isPaused, __pyx_k_PWMCycle_isPaused, sizeof(__pyx_k_PWMCycle_isPaused), 0, 0, 1, 1},
   {&__pyx_n_s_PWMCycle_isStopped, __pyx_k_PWMCycle_isStopped, sizeof(__pyx_k_PWMCycle_isStopped), 0, 0, 1, 1},
   {&__pyx_n_s_PWMCycle_pauseCycle, __pyx_k_PWMCycle_pauseCycle, sizeof(__pyx_k_PWMCycle_pauseCycle), 0, 0, 1, 1},
-  {&__pyx_n_s_PWMCycle_runCycle, __pyx_k_PWMCycle_runCycle, sizeof(__pyx_k_PWMCycle_runCycle), 0, 0, 1, 1},
   {&__pyx_n_s_PWMCycle_stopCycle, __pyx_k_PWMCycle_stopCycle, sizeof(__pyx_k_PWMCycle_stopCycle), 0, 0, 1, 1},
   {&__pyx_n_s_PWMCycle_unpauseCycle, __pyx_k_PWMCycle_unpauseCycle, sizeof(__pyx_k_PWMCycle_unpauseCycle), 0, 0, 1, 1},
   {&__pyx_n_s_PWM___init, __pyx_k_PWM___init, sizeof(__pyx_k_PWM___init), 0, 0, 1, 1},
@@ -4773,16 +5257,15 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_PWM_pin, __pyx_k_PWM_pin, sizeof(__pyx_k_PWM_pin), 0, 0, 1, 1},
   {&__pyx_n_s_PWM_startCycle, __pyx_k_PWM_startCycle, sizeof(__pyx_k_PWM_startCycle), 0, 0, 1, 1},
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
+  {&__pyx_n_s_Pyx_CFunc_object____PWMCycle, __pyx_k_Pyx_CFunc_object____PWMCycle, sizeof(__pyx_k_Pyx_CFunc_object____PWMCycle), 0, 0, 1, 1},
   {&__pyx_n_s_Thread, __pyx_k_Thread, sizeof(__pyx_k_Thread), 0, 0, 1, 1},
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
   {&__pyx_n_s_args, __pyx_k_args, sizeof(__pyx_k_args), 0, 0, 1, 1},
   {&__pyx_n_s_bit_index, __pyx_k_bit_index, sizeof(__pyx_k_bit_index), 0, 0, 1, 1},
   {&__pyx_n_s_bitbang_pwm, __pyx_k_bitbang_pwm, sizeof(__pyx_k_bitbang_pwm), 0, 0, 1, 1},
   {&__pyx_kp_s_bitbang_pwm_py, __pyx_k_bitbang_pwm_py, sizeof(__pyx_k_bitbang_pwm_py), 0, 0, 1, 0},
-  {&__pyx_n_s_bitindex, __pyx_k_bitindex, sizeof(__pyx_k_bitindex), 0, 0, 1, 1},
-  {&__pyx_n_s_bitmask, __pyx_k_bitmask, sizeof(__pyx_k_bitmask), 0, 0, 1, 1},
   {&__pyx_n_u_bool, __pyx_k_bool, sizeof(__pyx_k_bool), 0, 1, 0, 1},
-  {&__pyx_n_s_byteresult, __pyx_k_byteresult, sizeof(__pyx_k_byteresult), 0, 0, 1, 1},
+  {&__pyx_n_s_cfunc_to_py, __pyx_k_cfunc_to_py, sizeof(__pyx_k_cfunc_to_py), 0, 0, 1, 1},
   {&__pyx_n_s_clear, __pyx_k_clear, sizeof(__pyx_k_clear), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_cycle_time, __pyx_k_cycle_time, sizeof(__pyx_k_cycle_time), 0, 0, 1, 1},
@@ -4812,21 +5295,14 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_new, __pyx_k_new, sizeof(__pyx_k_new), 0, 0, 1, 1},
   {&__pyx_n_u_object, __pyx_k_object, sizeof(__pyx_k_object), 0, 1, 0, 1},
-  {&__pyx_n_s_offdelay, __pyx_k_offdelay, sizeof(__pyx_k_offdelay), 0, 0, 1, 1},
-  {&__pyx_n_s_offtime, __pyx_k_offtime, sizeof(__pyx_k_offtime), 0, 0, 1, 1},
-  {&__pyx_n_s_ondelay, __pyx_k_ondelay, sizeof(__pyx_k_ondelay), 0, 0, 1, 1},
-  {&__pyx_n_s_ontime, __pyx_k_ontime, sizeof(__pyx_k_ontime), 0, 0, 1, 1},
   {&__pyx_n_s_parallel_port, __pyx_k_parallel_port, sizeof(__pyx_k_parallel_port), 0, 0, 1, 1},
   {&__pyx_n_s_pauseCycle, __pyx_k_pauseCycle, sizeof(__pyx_k_pauseCycle), 0, 0, 1, 1},
   {&__pyx_n_s_pickle, __pyx_k_pickle, sizeof(__pyx_k_pickle), 0, 0, 1, 1},
   {&__pyx_n_s_pin, __pyx_k_pin, sizeof(__pyx_k_pin), 0, 0, 1, 1},
   {&__pyx_n_s_pin_2, __pyx_k_pin_2, sizeof(__pyx_k_pin_2), 0, 0, 1, 1},
   {&__pyx_n_s_port, __pyx_k_port, sizeof(__pyx_k_port), 0, 0, 1, 1},
-  {&__pyx_n_s_portregister, __pyx_k_portregister, sizeof(__pyx_k_portregister), 0, 0, 1, 1},
-  {&__pyx_n_s_portregisterbyte, __pyx_k_portregisterbyte, sizeof(__pyx_k_portregisterbyte), 0, 0, 1, 1},
   {&__pyx_n_s_prepare, __pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 0, 1, 1},
   {&__pyx_n_s_property, __pyx_k_property, sizeof(__pyx_k_property), 0, 0, 1, 1},
-  {&__pyx_n_s_pwm_gpioport, __pyx_k_pwm_gpioport, sizeof(__pyx_k_pwm_gpioport), 0, 0, 1, 1},
   {&__pyx_n_s_pwm_pin, __pyx_k_pwm_pin, sizeof(__pyx_k_pwm_pin), 0, 0, 1, 1},
   {&__pyx_n_s_pwm_thread, __pyx_k_pwm_thread, sizeof(__pyx_k_pwm_thread), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_PickleError, __pyx_k_pyx_PickleError, sizeof(__pyx_k_pyx_PickleError), 0, 0, 1, 1},
@@ -4835,13 +5311,13 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_pyx_state, __pyx_k_pyx_state, sizeof(__pyx_k_pyx_state), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_type, __pyx_k_pyx_type, sizeof(__pyx_k_pyx_type), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_PWMCycle, __pyx_k_pyx_unpickle_PWMCycle, sizeof(__pyx_k_pyx_unpickle_PWMCycle), 0, 0, 1, 1},
+  {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
   {&__pyx_n_s_qualname, __pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 0, 1, 1},
   {&__pyx_n_s_reduce, __pyx_k_reduce, sizeof(__pyx_k_reduce), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_cython, __pyx_k_reduce_cython, sizeof(__pyx_k_reduce_cython), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_ex, __pyx_k_reduce_ex, sizeof(__pyx_k_reduce_ex), 0, 0, 1, 1},
   {&__pyx_n_s_register, __pyx_k_register, sizeof(__pyx_k_register), 0, 0, 1, 1},
   {&__pyx_n_s_return, __pyx_k_return, sizeof(__pyx_k_return), 0, 0, 1, 1},
-  {&__pyx_n_s_runCycle, __pyx_k_runCycle, sizeof(__pyx_k_runCycle), 0, 0, 1, 1},
   {&__pyx_n_s_self, __pyx_k_self, sizeof(__pyx_k_self), 0, 0, 1, 1},
   {&__pyx_n_s_set, __pyx_k_set, sizeof(__pyx_k_set), 0, 0, 1, 1},
   {&__pyx_n_s_setstate, __pyx_k_setstate, sizeof(__pyx_k_setstate), 0, 0, 1, 1},
@@ -4859,6 +5335,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_unpauseCycle, __pyx_k_unpauseCycle, sizeof(__pyx_k_unpauseCycle), 0, 0, 1, 1},
   {&__pyx_n_s_update, __pyx_k_update, sizeof(__pyx_k_update), 0, 0, 1, 1},
   {&__pyx_n_s_use_setstate, __pyx_k_use_setstate, sizeof(__pyx_k_use_setstate), 0, 0, 1, 1},
+  {&__pyx_n_s_wrap, __pyx_k_wrap, sizeof(__pyx_k_wrap), 0, 0, 1, 1},
   {&__pyx_n_s_writePin, __pyx_k_writePin, sizeof(__pyx_k_writePin), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
@@ -4896,6 +5373,18 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
+  /* "cfunc.to_py":65
+ * @cname("__Pyx_CFunc_object____PWMCycle___to_py")
+ * cdef object __Pyx_CFunc_object____PWMCycle___to_py(object (*f)(PWMCycle) ):
+ *     def wrap(PWMCycle self):             # <<<<<<<<<<<<<<
+ *         """wrap(self: 'PWMCycle')"""
+ *         return f(self)
+ */
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(1, 65, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__3);
+  __Pyx_GIVEREF(__pyx_tuple__3);
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_wrap, 65, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(1, 65, __pyx_L1_error)
+
   /* "bitbang_pwm.py":13
  *     _pwm_thread: object
  * 
@@ -4903,10 +5392,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         self._port = gpio_port
  *         self._pin = pwm_pin
  */
-  __pyx_tuple__3 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_gpio_port, __pyx_n_s_pwm_pin, __pyx_n_s_duty_cycle, __pyx_n_s_cycle_time); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__3);
-  __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(5, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_init, 13, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_gpio_port, __pyx_n_s_pwm_pin, __pyx_n_s_duty_cycle, __pyx_n_s_cycle_time); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__5);
+  __Pyx_GIVEREF(__pyx_tuple__5);
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(5, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_init, 13, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 13, __pyx_L1_error)
 
   /* "bitbang_pwm.py":21
  * 
@@ -4915,10 +5404,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         return self._pin
  * 
  */
-  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 21, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__5);
-  __Pyx_GIVEREF(__pyx_tuple__5);
-  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_pin_2, 21, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__7);
+  __Pyx_GIVEREF(__pyx_tuple__7);
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_pin_2, 21, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 21, __pyx_L1_error)
 
   /* "bitbang_pwm.py":25
  * 
@@ -4927,10 +5416,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if pwm_pin.isOutputAllowed():
  *             self._pin = pwm_pin
  */
-  __pyx_tuple__7 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pwm_pin); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 25, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__7);
-  __Pyx_GIVEREF(__pyx_tuple__7);
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_pin_2, 25, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pwm_pin); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__9);
+  __Pyx_GIVEREF(__pyx_tuple__9);
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_pin_2, 25, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 25, __pyx_L1_error)
 
   /* "bitbang_pwm.py":32
  * 
@@ -4939,10 +5428,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         return self._duty_cycle
  * 
  */
-  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 32, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__9);
-  __Pyx_GIVEREF(__pyx_tuple__9);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_duty_cycle, 32, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__11);
+  __Pyx_GIVEREF(__pyx_tuple__11);
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_duty_cycle, 32, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 32, __pyx_L1_error)
 
   /* "bitbang_pwm.py":36
  * 
@@ -4951,10 +5440,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if (0 <= duty_cycle) and (1 >= duty_cycle):
  *             self._duty_cycle = duty_cycle
  */
-  __pyx_tuple__11 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_duty_cycle); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 36, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__11);
-  __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_duty_cycle, 36, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __pyx_tuple__13 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_duty_cycle); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__13);
+  __Pyx_GIVEREF(__pyx_tuple__13);
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_duty_cycle, 36, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 36, __pyx_L1_error)
 
   /* "bitbang_pwm.py":42
  *             raise ValueError("Duty cycle must be between 0 and 1")
@@ -4963,10 +5452,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         self._port.writePin(self._pin, False)
  *         self._pwm_thread = PWMCycle(self._port, self._pin, self._duty_cycle, self.cycle_time)
  */
-  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 42, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__13);
-  __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_startCycle, 42, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__15);
+  __Pyx_GIVEREF(__pyx_tuple__15);
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_startCycle, 42, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 42, __pyx_L1_error)
 
   /* "bitbang_pwm.py":46
  *         self._pwm_thread = PWMCycle(self._port, self._pin, self._duty_cycle, self.cycle_time)
@@ -4975,26 +5464,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         self._pwm_thread.stopCycle()
  * 
  */
-  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 46, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__15);
-  __Pyx_GIVEREF(__pyx_tuple__15);
-  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_endCycle, 46, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 46, __pyx_L1_error)
-
-  /* "bitbang_pwm.py":72
- *         self._pwm_thread.start()
- * 
- *     def runCycle(self):             # <<<<<<<<<<<<<<
- * 
- *         gpiopin: object
- */
-  __pyx_tuple__17 = PyTuple_Pack(14, __pyx_n_s_self, __pyx_n_s_gpiopin, __pyx_n_s_pwm_gpioport, __pyx_n_s_portregister, __pyx_n_s_bitindex, __pyx_n_s_cycletime, __pyx_n_s_dutycycle, __pyx_n_s_ontime, __pyx_n_s_offtime, __pyx_n_s_ondelay, __pyx_n_s_offdelay, __pyx_n_s_bitmask, __pyx_n_s_byteresult, __pyx_n_s_portregisterbyte); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_tuple__17 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__17);
   __Pyx_GIVEREF(__pyx_tuple__17);
-  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(1, 0, 14, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_runCycle, 72, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_endCycle, 46, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 46, __pyx_L1_error)
 
   /* "bitbang_pwm.py":110
- *                     pass
  * 
+ *     @cython.ccall
  *     def stopCycle(self):             # <<<<<<<<<<<<<<
  *         self._end_cycle.set()
  * 
@@ -5004,52 +5481,52 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__19);
   __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_stopCycle, 110, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(0, 110, __pyx_L1_error)
 
-  /* "bitbang_pwm.py":113
- *         self._end_cycle.set()
+  /* "bitbang_pwm.py":114
  * 
+ *     @cython.ccall
  *     def pauseCycle(self):             # <<<<<<<<<<<<<<
  *         self._pause_cycle.set()
  * 
  */
-  __pyx_tuple__21 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_tuple__21 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__21);
   __Pyx_GIVEREF(__pyx_tuple__21);
-  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_pauseCycle, 113, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_pauseCycle, 114, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 114, __pyx_L1_error)
 
-  /* "bitbang_pwm.py":116
- *         self._pause_cycle.set()
+  /* "bitbang_pwm.py":118
  * 
+ *     @cython.ccall
  *     def unpauseCycle(self):             # <<<<<<<<<<<<<<
  *         self._pause_cycle.clear()
  * 
  */
-  __pyx_tuple__23 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_tuple__23 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 118, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__23);
   __Pyx_GIVEREF(__pyx_tuple__23);
-  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_unpauseCycle, 116, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_unpauseCycle, 118, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 118, __pyx_L1_error)
 
-  /* "bitbang_pwm.py":119
+  /* "bitbang_pwm.py":121
  *         self._pause_cycle.clear()
  * 
  *     def isStopped(self) -> cython.bint:             # <<<<<<<<<<<<<<
  *         return self._end_cycle.is_set()
  * 
  */
-  __pyx_tuple__25 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_tuple__25 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__25);
   __Pyx_GIVEREF(__pyx_tuple__25);
-  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_isStopped, 119, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_isStopped, 121, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 121, __pyx_L1_error)
 
-  /* "bitbang_pwm.py":122
+  /* "bitbang_pwm.py":124
  *         return self._end_cycle.is_set()
  * 
  *     def isPaused(self) -> cython.bint:             # <<<<<<<<<<<<<<
  *         return self._pause_cycle.is_set()
  */
-  __pyx_tuple__27 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_tuple__27 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(0, 124, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__27);
   __Pyx_GIVEREF(__pyx_tuple__27);
-  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_isPaused, 122, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_bitbang_pwm_py, __pyx_n_s_isPaused, 124, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 124, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -5135,13 +5612,27 @@ static int __Pyx_modinit_type_init_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
+  __pyx_vtabptr_11bitbang_pwm_PWMCycle = &__pyx_vtable_11bitbang_pwm_PWMCycle;
+  __pyx_vtable_11bitbang_pwm_PWMCycle.runCycle = (PyObject *(*)(struct __pyx_obj_11bitbang_pwm_PWMCycle *))__pyx_f_11bitbang_pwm_8PWMCycle_runCycle;
+  __pyx_vtable_11bitbang_pwm_PWMCycle.stopCycle = (PyObject *(*)(struct __pyx_obj_11bitbang_pwm_PWMCycle *, int __pyx_skip_dispatch))__pyx_f_11bitbang_pwm_8PWMCycle_stopCycle;
+  __pyx_vtable_11bitbang_pwm_PWMCycle.pauseCycle = (PyObject *(*)(struct __pyx_obj_11bitbang_pwm_PWMCycle *, int __pyx_skip_dispatch))__pyx_f_11bitbang_pwm_8PWMCycle_pauseCycle;
+  __pyx_vtable_11bitbang_pwm_PWMCycle.unpauseCycle = (PyObject *(*)(struct __pyx_obj_11bitbang_pwm_PWMCycle *, int __pyx_skip_dispatch))__pyx_f_11bitbang_pwm_8PWMCycle_unpauseCycle;
   if (PyType_Ready(&__pyx_type_11bitbang_pwm_PWMCycle) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_11bitbang_pwm_PWMCycle.tp_print = 0;
   #endif
+  if (__Pyx_SetVtable(__pyx_type_11bitbang_pwm_PWMCycle.tp_dict, __pyx_vtabptr_11bitbang_pwm_PWMCycle) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PWMCycle, (PyObject *)&__pyx_type_11bitbang_pwm_PWMCycle) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_11bitbang_pwm_PWMCycle) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
   __pyx_ptype_11bitbang_pwm_PWMCycle = &__pyx_type_11bitbang_pwm_PWMCycle;
+  if (PyType_Ready(&__pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py) < 0) __PYX_ERR(1, 64, __pyx_L1_error)
+  #if PY_VERSION_HEX < 0x030800B1
+  __pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py.tp_print = 0;
+  #endif
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py.tp_dictoffset && __pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  }
+  __pyx_ptype___pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py = &__pyx_scope_struct____Pyx_CFunc_object____PWMCycle___to_py;
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -5444,7 +5935,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_pwm_pin, __pyx_n_u_object) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_duty_cycle, __pyx_kp_u_long_double) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_cycle_time, __pyx_kp_u_long_double) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_3PWM_1__init__, 0, __pyx_n_s_PWM___init, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_3PWM_1__init__, 0, __pyx_n_s_PWM___init, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__6)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_1, __pyx_t_4);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_3);
@@ -5460,7 +5951,7 @@ if (!__Pyx_RefNanny) {
  *         return self._pin
  * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_3PWM_3pin, 0, __pyx_n_s_PWM_pin, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__6)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_3PWM_3pin, 0, __pyx_n_s_PWM_pin, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
   /* "bitbang_pwm.py":20
@@ -5504,7 +5995,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_pwm_pin, __pyx_n_u_object) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_3PWM_5pin, 0, __pyx_n_s_PWM_pin, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_3PWM_5pin, 0, __pyx_n_s_PWM_pin, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5537,7 +6028,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_return, __pyx_kp_u_long_double) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_3PWM_7duty_cycle, 0, __pyx_n_s_PWM_duty_cycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_3PWM_7duty_cycle, 0, __pyx_n_s_PWM_duty_cycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5583,7 +6074,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_duty_cycle, __pyx_kp_u_long_double) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_3PWM_9duty_cycle, 0, __pyx_n_s_PWM_duty_cycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_3PWM_9duty_cycle, 0, __pyx_n_s_PWM_duty_cycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_4);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -5613,7 +6104,7 @@ if (!__Pyx_RefNanny) {
  *         self._port.writePin(self._pin, False)
  *         self._pwm_thread = PWMCycle(self._port, self._pin, self._duty_cycle, self.cycle_time)
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_3PWM_11startCycle, 0, __pyx_n_s_PWM_startCycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_3PWM_11startCycle, 0, __pyx_n_s_PWM_startCycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_startCycle, __pyx_t_3) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5625,7 +6116,7 @@ if (!__Pyx_RefNanny) {
  *         self._pwm_thread.stopCycle()
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_3PWM_13endCycle, 0, __pyx_n_s_PWM_endCycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_3PWM_13endCycle, 0, __pyx_n_s_PWM_endCycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_endCycle, __pyx_t_3) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5643,90 +6134,77 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "bitbang_pwm.py":72
- *         self._pwm_thread.start()
- * 
- *     def runCycle(self):             # <<<<<<<<<<<<<<
- * 
- *         gpiopin: object
- */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_3runCycle, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle_runCycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_11bitbang_pwm_PWMCycle->tp_dict, __pyx_n_s_runCycle, __pyx_t_2) < 0) __PYX_ERR(0, 72, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_11bitbang_pwm_PWMCycle);
-
   /* "bitbang_pwm.py":110
- *                     pass
  * 
+ *     @cython.ccall
  *     def stopCycle(self):             # <<<<<<<<<<<<<<
  *         self._end_cycle.set()
  * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_5stopCycle, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle_stopCycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_3stopCycle, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle_stopCycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem((PyObject *)__pyx_ptype_11bitbang_pwm_PWMCycle->tp_dict, __pyx_n_s_stopCycle, __pyx_t_2) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_11bitbang_pwm_PWMCycle);
 
-  /* "bitbang_pwm.py":113
- *         self._end_cycle.set()
+  /* "bitbang_pwm.py":114
  * 
+ *     @cython.ccall
  *     def pauseCycle(self):             # <<<<<<<<<<<<<<
  *         self._pause_cycle.set()
  * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_7pauseCycle, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle_pauseCycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_5pauseCycle, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle_pauseCycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_11bitbang_pwm_PWMCycle->tp_dict, __pyx_n_s_pauseCycle, __pyx_t_2) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_11bitbang_pwm_PWMCycle->tp_dict, __pyx_n_s_pauseCycle, __pyx_t_2) < 0) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_11bitbang_pwm_PWMCycle);
 
-  /* "bitbang_pwm.py":116
- *         self._pause_cycle.set()
+  /* "bitbang_pwm.py":118
  * 
+ *     @cython.ccall
  *     def unpauseCycle(self):             # <<<<<<<<<<<<<<
  *         self._pause_cycle.clear()
  * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_9unpauseCycle, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle_unpauseCycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_7unpauseCycle, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle_unpauseCycle, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 118, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_11bitbang_pwm_PWMCycle->tp_dict, __pyx_n_s_unpauseCycle, __pyx_t_2) < 0) __PYX_ERR(0, 116, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_11bitbang_pwm_PWMCycle->tp_dict, __pyx_n_s_unpauseCycle, __pyx_t_2) < 0) __PYX_ERR(0, 118, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_11bitbang_pwm_PWMCycle);
 
-  /* "bitbang_pwm.py":119
+  /* "bitbang_pwm.py":121
  *         self._pause_cycle.clear()
  * 
  *     def isStopped(self) -> cython.bint:             # <<<<<<<<<<<<<<
  *         return self._end_cycle.is_set()
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_u_bool) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_11isStopped, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle_isStopped, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 119, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_u_bool) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_9isStopped, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle_isStopped, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_11bitbang_pwm_PWMCycle->tp_dict, __pyx_n_s_isStopped, __pyx_t_3) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_11bitbang_pwm_PWMCycle->tp_dict, __pyx_n_s_isStopped, __pyx_t_3) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   PyType_Modified(__pyx_ptype_11bitbang_pwm_PWMCycle);
 
-  /* "bitbang_pwm.py":122
+  /* "bitbang_pwm.py":124
  *         return self._end_cycle.is_set()
  * 
  *     def isPaused(self) -> cython.bint:             # <<<<<<<<<<<<<<
  *         return self._pause_cycle.is_set()
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 124, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_return, __pyx_n_u_bool) < 0) __PYX_ERR(0, 122, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_13isPaused, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle_isPaused, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_return, __pyx_n_u_bool) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_11isPaused, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle_isPaused, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 124, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_11bitbang_pwm_PWMCycle->tp_dict, __pyx_n_s_isPaused, __pyx_t_2) < 0) __PYX_ERR(0, 122, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_11bitbang_pwm_PWMCycle->tp_dict, __pyx_n_s_isPaused, __pyx_t_2) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_11bitbang_pwm_PWMCycle);
 
@@ -5735,7 +6213,7 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_15__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle___reduce_cython, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle___reduce_cython, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem((PyObject *)__pyx_ptype_11bitbang_pwm_PWMCycle->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -5747,7 +6225,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_PWMCycle__set_state(self, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_17__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle___setstate_cython, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__32)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 16, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11bitbang_pwm_8PWMCycle_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PWMCycle___setstate_cython, NULL, __pyx_n_s_bitbang_pwm, __pyx_d, ((PyObject *)__pyx_codeobj__32)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem((PyObject *)__pyx_ptype_11bitbang_pwm_PWMCycle->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(1, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -5772,6 +6250,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "cfunc.to_py":64
+ * 
+ * @cname("__Pyx_CFunc_object____PWMCycle___to_py")
+ * cdef object __Pyx_CFunc_object____PWMCycle___to_py(object (*f)(PWMCycle) ):             # <<<<<<<<<<<<<<
+ *     def wrap(PWMCycle self):
+ *         """wrap(self: 'PWMCycle')"""
+ */
 
   /*--- Wrapped vars code ---*/
 
@@ -6757,110 +7243,25 @@ static CYTHON_INLINE int __Pyx_HasAttr(PyObject *o, PyObject *n) {
     }
 }
 
-/* PyObjectGetAttrStrNoError */
-static void __Pyx_PyObject_GetAttrStr_ClearAttributeError(void) {
-    __Pyx_PyThreadState_declare
-    __Pyx_PyThreadState_assign
-    if (likely(__Pyx_PyErr_ExceptionMatches(PyExc_AttributeError)))
-        __Pyx_PyErr_Clear();
-}
-static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStrNoError(PyObject* obj, PyObject* attr_name) {
-    PyObject *result;
-#if CYTHON_COMPILING_IN_CPYTHON && CYTHON_USE_TYPE_SLOTS && PY_VERSION_HEX >= 0x030700B1
-    PyTypeObject* tp = Py_TYPE(obj);
-    if (likely(tp->tp_getattro == PyObject_GenericGetAttr)) {
-        return _PyObject_GenericGetAttrWithDict(obj, attr_name, NULL, 1);
+/* ArgTypeTest */
+static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact)
+{
+    if (unlikely(!type)) {
+        PyErr_SetString(PyExc_SystemError, "Missing type object");
+        return 0;
     }
-#endif
-    result = __Pyx_PyObject_GetAttrStr(obj, attr_name);
-    if (unlikely(!result)) {
-        __Pyx_PyObject_GetAttrStr_ClearAttributeError();
+    else if (exact) {
+        #if PY_MAJOR_VERSION == 2
+        if ((type == &PyBaseString_Type) && likely(__Pyx_PyBaseString_CheckExact(obj))) return 1;
+        #endif
     }
-    return result;
-}
-
-/* SetupReduce */
-static int __Pyx_setup_reduce_is_named(PyObject* meth, PyObject* name) {
-  int ret;
-  PyObject *name_attr;
-  name_attr = __Pyx_PyObject_GetAttrStr(meth, __pyx_n_s_name);
-  if (likely(name_attr)) {
-      ret = PyObject_RichCompareBool(name_attr, name, Py_EQ);
-  } else {
-      ret = -1;
-  }
-  if (unlikely(ret < 0)) {
-      PyErr_Clear();
-      ret = 0;
-  }
-  Py_XDECREF(name_attr);
-  return ret;
-}
-static int __Pyx_setup_reduce(PyObject* type_obj) {
-    int ret = 0;
-    PyObject *object_reduce = NULL;
-    PyObject *object_reduce_ex = NULL;
-    PyObject *reduce = NULL;
-    PyObject *reduce_ex = NULL;
-    PyObject *reduce_cython = NULL;
-    PyObject *setstate = NULL;
-    PyObject *setstate_cython = NULL;
-#if CYTHON_USE_PYTYPE_LOOKUP
-    if (_PyType_Lookup((PyTypeObject*)type_obj, __pyx_n_s_getstate)) goto __PYX_GOOD;
-#else
-    if (PyObject_HasAttr(type_obj, __pyx_n_s_getstate)) goto __PYX_GOOD;
-#endif
-#if CYTHON_USE_PYTYPE_LOOKUP
-    object_reduce_ex = _PyType_Lookup(&PyBaseObject_Type, __pyx_n_s_reduce_ex); if (!object_reduce_ex) goto __PYX_BAD;
-#else
-    object_reduce_ex = __Pyx_PyObject_GetAttrStr((PyObject*)&PyBaseObject_Type, __pyx_n_s_reduce_ex); if (!object_reduce_ex) goto __PYX_BAD;
-#endif
-    reduce_ex = __Pyx_PyObject_GetAttrStr(type_obj, __pyx_n_s_reduce_ex); if (unlikely(!reduce_ex)) goto __PYX_BAD;
-    if (reduce_ex == object_reduce_ex) {
-#if CYTHON_USE_PYTYPE_LOOKUP
-        object_reduce = _PyType_Lookup(&PyBaseObject_Type, __pyx_n_s_reduce); if (!object_reduce) goto __PYX_BAD;
-#else
-        object_reduce = __Pyx_PyObject_GetAttrStr((PyObject*)&PyBaseObject_Type, __pyx_n_s_reduce); if (!object_reduce) goto __PYX_BAD;
-#endif
-        reduce = __Pyx_PyObject_GetAttrStr(type_obj, __pyx_n_s_reduce); if (unlikely(!reduce)) goto __PYX_BAD;
-        if (reduce == object_reduce || __Pyx_setup_reduce_is_named(reduce, __pyx_n_s_reduce_cython)) {
-            reduce_cython = __Pyx_PyObject_GetAttrStrNoError(type_obj, __pyx_n_s_reduce_cython);
-            if (likely(reduce_cython)) {
-                ret = PyDict_SetItem(((PyTypeObject*)type_obj)->tp_dict, __pyx_n_s_reduce, reduce_cython); if (unlikely(ret < 0)) goto __PYX_BAD;
-                ret = PyDict_DelItem(((PyTypeObject*)type_obj)->tp_dict, __pyx_n_s_reduce_cython); if (unlikely(ret < 0)) goto __PYX_BAD;
-            } else if (reduce == object_reduce || PyErr_Occurred()) {
-                goto __PYX_BAD;
-            }
-            setstate = __Pyx_PyObject_GetAttrStr(type_obj, __pyx_n_s_setstate);
-            if (!setstate) PyErr_Clear();
-            if (!setstate || __Pyx_setup_reduce_is_named(setstate, __pyx_n_s_setstate_cython)) {
-                setstate_cython = __Pyx_PyObject_GetAttrStrNoError(type_obj, __pyx_n_s_setstate_cython);
-                if (likely(setstate_cython)) {
-                    ret = PyDict_SetItem(((PyTypeObject*)type_obj)->tp_dict, __pyx_n_s_setstate, setstate_cython); if (unlikely(ret < 0)) goto __PYX_BAD;
-                    ret = PyDict_DelItem(((PyTypeObject*)type_obj)->tp_dict, __pyx_n_s_setstate_cython); if (unlikely(ret < 0)) goto __PYX_BAD;
-                } else if (!setstate || PyErr_Occurred()) {
-                    goto __PYX_BAD;
-                }
-            }
-            PyType_Modified((PyTypeObject*)type_obj);
-        }
+    else {
+        if (likely(__Pyx_TypeCheck(obj, type))) return 1;
     }
-    goto __PYX_GOOD;
-__PYX_BAD:
-    if (!PyErr_Occurred())
-        PyErr_Format(PyExc_RuntimeError, "Unable to initialize pickling for %s", ((PyTypeObject*)type_obj)->tp_name);
-    ret = -1;
-__PYX_GOOD:
-#if !CYTHON_USE_PYTYPE_LOOKUP
-    Py_XDECREF(object_reduce);
-    Py_XDECREF(object_reduce_ex);
-#endif
-    Py_XDECREF(reduce);
-    Py_XDECREF(reduce_ex);
-    Py_XDECREF(reduce_cython);
-    Py_XDECREF(setstate);
-    Py_XDECREF(setstate_cython);
-    return ret;
+    PyErr_Format(PyExc_TypeError,
+        "Argument '%.200s' has incorrect type (expected %.200s, got %.200s)",
+        name, type->tp_name, Py_TYPE(obj)->tp_name);
+    return 0;
 }
 
 /* FetchCommonType */
@@ -7519,6 +7920,170 @@ static PyObject *__Pyx_CyFunction_New(PyMethodDef *ml, int flags, PyObject* qual
     }
     return op;
 }
+
+/* SetVTable */
+static int __Pyx_SetVtable(PyObject *dict, void *vtable) {
+#if PY_VERSION_HEX >= 0x02070000
+    PyObject *ob = PyCapsule_New(vtable, 0, 0);
+#else
+    PyObject *ob = PyCObject_FromVoidPtr(vtable, 0);
+#endif
+    if (!ob)
+        goto bad;
+    if (PyDict_SetItem(dict, __pyx_n_s_pyx_vtable, ob) < 0)
+        goto bad;
+    Py_DECREF(ob);
+    return 0;
+bad:
+    Py_XDECREF(ob);
+    return -1;
+}
+
+/* PyObjectGetAttrStrNoError */
+static void __Pyx_PyObject_GetAttrStr_ClearAttributeError(void) {
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    if (likely(__Pyx_PyErr_ExceptionMatches(PyExc_AttributeError)))
+        __Pyx_PyErr_Clear();
+}
+static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStrNoError(PyObject* obj, PyObject* attr_name) {
+    PyObject *result;
+#if CYTHON_COMPILING_IN_CPYTHON && CYTHON_USE_TYPE_SLOTS && PY_VERSION_HEX >= 0x030700B1
+    PyTypeObject* tp = Py_TYPE(obj);
+    if (likely(tp->tp_getattro == PyObject_GenericGetAttr)) {
+        return _PyObject_GenericGetAttrWithDict(obj, attr_name, NULL, 1);
+    }
+#endif
+    result = __Pyx_PyObject_GetAttrStr(obj, attr_name);
+    if (unlikely(!result)) {
+        __Pyx_PyObject_GetAttrStr_ClearAttributeError();
+    }
+    return result;
+}
+
+/* SetupReduce */
+static int __Pyx_setup_reduce_is_named(PyObject* meth, PyObject* name) {
+  int ret;
+  PyObject *name_attr;
+  name_attr = __Pyx_PyObject_GetAttrStr(meth, __pyx_n_s_name);
+  if (likely(name_attr)) {
+      ret = PyObject_RichCompareBool(name_attr, name, Py_EQ);
+  } else {
+      ret = -1;
+  }
+  if (unlikely(ret < 0)) {
+      PyErr_Clear();
+      ret = 0;
+  }
+  Py_XDECREF(name_attr);
+  return ret;
+}
+static int __Pyx_setup_reduce(PyObject* type_obj) {
+    int ret = 0;
+    PyObject *object_reduce = NULL;
+    PyObject *object_reduce_ex = NULL;
+    PyObject *reduce = NULL;
+    PyObject *reduce_ex = NULL;
+    PyObject *reduce_cython = NULL;
+    PyObject *setstate = NULL;
+    PyObject *setstate_cython = NULL;
+#if CYTHON_USE_PYTYPE_LOOKUP
+    if (_PyType_Lookup((PyTypeObject*)type_obj, __pyx_n_s_getstate)) goto __PYX_GOOD;
+#else
+    if (PyObject_HasAttr(type_obj, __pyx_n_s_getstate)) goto __PYX_GOOD;
+#endif
+#if CYTHON_USE_PYTYPE_LOOKUP
+    object_reduce_ex = _PyType_Lookup(&PyBaseObject_Type, __pyx_n_s_reduce_ex); if (!object_reduce_ex) goto __PYX_BAD;
+#else
+    object_reduce_ex = __Pyx_PyObject_GetAttrStr((PyObject*)&PyBaseObject_Type, __pyx_n_s_reduce_ex); if (!object_reduce_ex) goto __PYX_BAD;
+#endif
+    reduce_ex = __Pyx_PyObject_GetAttrStr(type_obj, __pyx_n_s_reduce_ex); if (unlikely(!reduce_ex)) goto __PYX_BAD;
+    if (reduce_ex == object_reduce_ex) {
+#if CYTHON_USE_PYTYPE_LOOKUP
+        object_reduce = _PyType_Lookup(&PyBaseObject_Type, __pyx_n_s_reduce); if (!object_reduce) goto __PYX_BAD;
+#else
+        object_reduce = __Pyx_PyObject_GetAttrStr((PyObject*)&PyBaseObject_Type, __pyx_n_s_reduce); if (!object_reduce) goto __PYX_BAD;
+#endif
+        reduce = __Pyx_PyObject_GetAttrStr(type_obj, __pyx_n_s_reduce); if (unlikely(!reduce)) goto __PYX_BAD;
+        if (reduce == object_reduce || __Pyx_setup_reduce_is_named(reduce, __pyx_n_s_reduce_cython)) {
+            reduce_cython = __Pyx_PyObject_GetAttrStrNoError(type_obj, __pyx_n_s_reduce_cython);
+            if (likely(reduce_cython)) {
+                ret = PyDict_SetItem(((PyTypeObject*)type_obj)->tp_dict, __pyx_n_s_reduce, reduce_cython); if (unlikely(ret < 0)) goto __PYX_BAD;
+                ret = PyDict_DelItem(((PyTypeObject*)type_obj)->tp_dict, __pyx_n_s_reduce_cython); if (unlikely(ret < 0)) goto __PYX_BAD;
+            } else if (reduce == object_reduce || PyErr_Occurred()) {
+                goto __PYX_BAD;
+            }
+            setstate = __Pyx_PyObject_GetAttrStr(type_obj, __pyx_n_s_setstate);
+            if (!setstate) PyErr_Clear();
+            if (!setstate || __Pyx_setup_reduce_is_named(setstate, __pyx_n_s_setstate_cython)) {
+                setstate_cython = __Pyx_PyObject_GetAttrStrNoError(type_obj, __pyx_n_s_setstate_cython);
+                if (likely(setstate_cython)) {
+                    ret = PyDict_SetItem(((PyTypeObject*)type_obj)->tp_dict, __pyx_n_s_setstate, setstate_cython); if (unlikely(ret < 0)) goto __PYX_BAD;
+                    ret = PyDict_DelItem(((PyTypeObject*)type_obj)->tp_dict, __pyx_n_s_setstate_cython); if (unlikely(ret < 0)) goto __PYX_BAD;
+                } else if (!setstate || PyErr_Occurred()) {
+                    goto __PYX_BAD;
+                }
+            }
+            PyType_Modified((PyTypeObject*)type_obj);
+        }
+    }
+    goto __PYX_GOOD;
+__PYX_BAD:
+    if (!PyErr_Occurred())
+        PyErr_Format(PyExc_RuntimeError, "Unable to initialize pickling for %s", ((PyTypeObject*)type_obj)->tp_name);
+    ret = -1;
+__PYX_GOOD:
+#if !CYTHON_USE_PYTYPE_LOOKUP
+    Py_XDECREF(object_reduce);
+    Py_XDECREF(object_reduce_ex);
+#endif
+    Py_XDECREF(reduce);
+    Py_XDECREF(reduce_ex);
+    Py_XDECREF(reduce_cython);
+    Py_XDECREF(setstate);
+    Py_XDECREF(setstate_cython);
+    return ret;
+}
+
+/* PyObject_GenericGetAttrNoDict */
+#if CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP && PY_VERSION_HEX < 0x03070000
+static PyObject *__Pyx_RaiseGenericGetAttributeError(PyTypeObject *tp, PyObject *attr_name) {
+    PyErr_Format(PyExc_AttributeError,
+#if PY_MAJOR_VERSION >= 3
+                 "'%.50s' object has no attribute '%U'",
+                 tp->tp_name, attr_name);
+#else
+                 "'%.50s' object has no attribute '%.400s'",
+                 tp->tp_name, PyString_AS_STRING(attr_name));
+#endif
+    return NULL;
+}
+static CYTHON_INLINE PyObject* __Pyx_PyObject_GenericGetAttrNoDict(PyObject* obj, PyObject* attr_name) {
+    PyObject *descr;
+    PyTypeObject *tp = Py_TYPE(obj);
+    if (unlikely(!PyString_Check(attr_name))) {
+        return PyObject_GenericGetAttr(obj, attr_name);
+    }
+    assert(!tp->tp_dictoffset);
+    descr = _PyType_Lookup(tp, attr_name);
+    if (unlikely(!descr)) {
+        return __Pyx_RaiseGenericGetAttributeError(tp, attr_name);
+    }
+    Py_INCREF(descr);
+    #if PY_MAJOR_VERSION < 3
+    if (likely(PyType_HasFeature(Py_TYPE(descr), Py_TPFLAGS_HAVE_CLASS)))
+    #endif
+    {
+        descrgetfunc f = Py_TYPE(descr)->tp_descr_get;
+        if (unlikely(f)) {
+            PyObject *res = f(descr, obj, (PyObject *)tp);
+            Py_DECREF(descr);
+            return res;
+        }
+    }
+    return descr;
+}
+#endif
 
 /* CalculateMetaclass */
 static PyObject *__Pyx_CalculateMetaclass(PyTypeObject *metaclass, PyObject *bases) {

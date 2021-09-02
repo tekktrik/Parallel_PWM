@@ -68,11 +68,10 @@ class PWMCycle:
         self._pwm_thread = threading.Thread(target=self.runCycle, args=())
         self._pwm_thread.daemon = True
         self._pwm_thread.start()
-            
+    
+    @cython.cfunc
     def runCycle(self):
     
-        gpiopin: object
-        pwm_gpioport: object
         portregister: cython.uint
         bitindex: cython.uchar
         cycletime: cython.longdouble
@@ -92,27 +91,30 @@ class PWMCycle:
         ontime = self.cycletime*self.dutycycle
         offtime = self.cycletime - ontime
         
-        portregisterbyte = self.pwm_gpioport.DlPortReadPortUchar(portregister)
+        portregisterbyte = self.gpioport.DlPortReadPortUchar(portregister)
         bitmask = 1 << bitindex
         byteresult = (bitmask ^ portregisterbyte)
             
         while not self._end_cycle.is_set():
             if not self._pause_cycle.is_set():
-                self.pwm_gpioport.DlPortWritePortUchar(portregister, byteresult)
+                self.gpioport.DlPortWritePortUchar(portregister, byteresult)
                 ondelay = time() + ontime
                 while time() < ondelay:
                     pass
-                self.pwm_gpioport.DlPortWritePortUchar(portregister, portregisterbyte)
+                self.gpioport.DlPortWritePortUchar(portregister, portregisterbyte)
                 offdelay = time() + offtime
                 while time() < offdelay:
                     pass
-                    
+    
+    @cython.ccall
     def stopCycle(self):
         self._end_cycle.set()
-        
+    
+    @cython.ccall
     def pauseCycle(self):
         self._pause_cycle.set()
     
+    @cython.ccall
     def unpauseCycle(self):
         self._pause_cycle.clear()
             
