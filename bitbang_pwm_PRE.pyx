@@ -1,6 +1,6 @@
 import threading
 #from posix.time cimport clock_gettime, timespec, CLOCK_MONOTONIC_RAW
-from libc.time cimport clock_t, clock, CLOCKS_PER_SEC, difftime, time
+from libc.time import clock_t, clock, CLOCKS_PER_SEC
 #cdef extern from "time.h":
 #ctypedef int time_t
 #ctypedef long suseconds_t
@@ -72,24 +72,19 @@ cdef class PWMCycle:
 		
 	cpdef runCycle(self):
 	
+		cdef timespec currtime, limittime
 		cdef long double time_now
 		
 		cdef object paraport = self._port._parallel_port
 		
-		cdef long double onlimittime
-		cdef long double ondelay_ms
-		cdef long double oncurrtime
-		cdef long double oncurrtime_ms
-		cdef long double offlimittime
-		cdef long double offdelay_ms
-		cdef long double offcurrtime
-		cdef long double offcurrtime_ms
+		cdef long double ondelay
+		cdef long double offdelay
 		
 		cdef unsigned int portregister = self._pin.register
 		cdef unsigned char bitindex = self._pin.bit_index
             
-		cdef long double ontime = (1000*self.cycle_time)*self._duty_cycle
-		cdef long double offtime = (1000*self.cycle_time) - ontime
+		cdef long double ontime = self.cycle_time*self._duty_cycle
+		cdef long double offtime = self.cycle_time - ontime
 		
 		cdef unsigned char portregisterbyte = paraport.DlPortReadPortUchar(portregister)
 		cdef unsigned char bitmask = 1 << bitindex
@@ -98,36 +93,17 @@ cdef class PWMCycle:
 		while not self._end_cycle.is_set():
 			if not self._pause_cycle.is_set():
 				paraport.DlPortWritePortUchar(portregister, byteresult)
-				onlimittime = <long double>clock()
-				ondelay_ms = <long double>((1000*onlimittime)/<long double>(CLOCKS_PER_SEC) + ontime)
-				while True:
-					oncurrtime = <long double>clock()
-					oncurrtime_ms = <long double>(((1000*oncurrtime)/<long double>(CLOCKS_PER_SEC)))
-					#print("ondelay_ms")
-					#print(ondelay_ms)
-					#print("currtime")
-					#print(oncurrtime_ms)
-					if oncurrtime_ms >= ondelay_ms:
-						break
+				ondelay = (1000*clock())/CLOCKS_PER_SEC + ontime
+				while ((1000*clock())/CLOCKS_PER_SEC) < ondely:
+					pass
 				paraport.DlPortWritePortUchar(portregister, portregisterbyte) 
-				offlimittime = <long double>clock()
-				offdelay_ms = <long double>((1000*offlimittime)/<long double>(CLOCKS_PER_SEC) + offtime)
-				while True:
-					offcurrtime = <long double>clock()
-					offcurrtime_ms = <long double>(((1000*offcurrtime)/<long double>(CLOCKS_PER_SEC)))
-					#print("offdelay_ms")
-					#print(offdelay_ms)
-					#print("currtime")
-					#print(offcurrtime_ms)
-					if offcurrtime_ms >= offdelay_ms:
-						break
-				#offdelay = (1000*clock())/CLOCKS_PER_SEC + offtime
-				#while ((1000*clock())/CLOCKS_PER_SEC) < offdelay:
-				#	pass
+				offdelay = (1000*clock())/CLOCKS_PER_SEC + offtime
+				while ((1000*clock())/CLOCKS_PER_SEC) < offdely:
+					pass
+		self._pwm_thread.join()
 					
 	cpdef stopCycle(self):
 		self._end_cycle.set()
-		self._pwm_thread.join()
 	
 	cpdef pauseCycle(self):
 		self._pause_cycle.set()
