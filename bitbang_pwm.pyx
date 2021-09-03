@@ -71,8 +71,8 @@ cdef class PWMCycle:
 		cdef unsigned int portregister = self.gpiopin.register
 		cdef unsigned char bitindex = self.gpiopin.bit_index
             
-		cdef long double ontime = self.cycletime*self.dutycycle
-		cdef long double offtime = self.cycletime - ontime
+		cdef long double ontime = self.cycle_time*self._duty_cycle
+		cdef long double offtime = self.cycle_time - ontime
 		
 		cdef unsigned char portregisterbyte = self.gpioport.DlPortReadPortUchar(portregister)
 		cdef unsigned char bitmask = 1 << bitindex
