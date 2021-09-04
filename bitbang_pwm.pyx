@@ -94,36 +94,31 @@ cdef class PWMCycle:
 		cdef unsigned char portregisterbyte = paraport.DlPortReadPortUchar(portregister)
 		cdef unsigned char bitmask = 1 << bitindex
 		cdef unsigned char byteresult = (bitmask ^ portregisterbyte)
+        
+        cdef object registerlock = self._pin.__class__.registerlock
 		
 		while not self._end_cycle.is_set():
 			if not self._pause_cycle.is_set():
-				paraport.DlPortWritePortUchar(portregister, byteresult)
-				onlimittime = <long double>clock()
-				ondelay_ms = <long double>((1000*onlimittime)/<long double>(CLOCKS_PER_SEC) + ontime)
-				while True:
-					oncurrtime = <long double>clock()
-					oncurrtime_ms = <long double>(((1000*oncurrtime)/<long double>(CLOCKS_PER_SEC)))
-					#print("ondelay_ms")
-					#print(ondelay_ms)
-					#print("currtime")
-					#print(oncurrtime_ms)
-					if oncurrtime_ms >= ondelay_ms:
-						break
-				paraport.DlPortWritePortUchar(portregister, portregisterbyte) 
-				offlimittime = <long double>clock()
-				offdelay_ms = <long double>((1000*offlimittime)/<long double>(CLOCKS_PER_SEC) + offtime)
-				while True:
-					offcurrtime = <long double>clock()
-					offcurrtime_ms = <long double>(((1000*offcurrtime)/<long double>(CLOCKS_PER_SEC)))
-					#print("offdelay_ms")
-					#print(offdelay_ms)
-					#print("currtime")
-					#print(offcurrtime_ms)
-					if offcurrtime_ms >= offdelay_ms:
-						break
-				#offdelay = (1000*clock())/CLOCKS_PER_SEC + offtime
-				#while ((1000*clock())/CLOCKS_PER_SEC) < offdelay:
-				#	pass
+				registerlock.acquire()
+				try:
+					paraport.DlPortWritePortUchar(portregister, byteresult)
+					onlimittime = <long double>clock()
+					ondelay_ms = <long double>((1000*onlimittime)/<long double>(CLOCKS_PER_SEC) + ontime)
+					while True:
+						oncurrtime = <long double>clock()
+						oncurrtime_ms = <long double>(((1000*oncurrtime)/<long double>(CLOCKS_PER_SEC)))
+						if oncurrtime_ms >= ondelay_ms:
+							break
+					paraport.DlPortWritePortUchar(portregister, portregisterbyte) 
+					offlimittime = <long double>clock()
+					offdelay_ms = <long double>((1000*offlimittime)/<long double>(CLOCKS_PER_SEC) + offtime)
+					while True:
+						offcurrtime = <long double>clock()
+						offcurrtime_ms = <long double>(((1000*offcurrtime)/<long double>(CLOCKS_PER_SEC)))
+						if offcurrtime_ms >= offdelay_ms:
+							break
+				finally:
+					registerlock.release()
 					
 	cpdef stopCycle(self):
 		self._end_cycle.set()

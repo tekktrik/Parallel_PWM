@@ -116,38 +116,73 @@ cdef class I2C:
 	
 	cpdef bint write(self, unsigned char i2c_address, list i2c_data, bint hold_device = False):
 		
-		cdef unsigned char databyte
 		
-		self._startCond()
-		cdef bint status = self._writeAddressFrame(i2c_address, False)
-		if not status:
-			return False
-		for databyte in i2c_data:
-			status = self._writeI2CByte(databyte)
+		cdef unsigned char databyte
+		cdef bint status
+		cdef object sdareglock = sda_pin.__class__.registerlock
+		cdef object sclreglock = scl_pin.__class__.registerlock
+		cdef bint samelock = False
+		
+		if type(sda_pin) == type(scl_pin):
+			samelock = True
+			sdareglock.acquire()
+		else:
+			sdareglock.acquire()
+			sclreglock.acquire()
+		
+		try:
+			self._startCond()
+			status = self._writeAddressFrame(i2c_address, False)
 			if not status:
 				return False
-		if hold_device:
-			self._repStartCond()
-		else:
-			self._endCond()
+			for databyte in i2c_data:
+				status = self._writeI2CByte(databyte)
+				if not status:
+					return False
+			if hold_device:
+				self._repStartCond()
+			else:
+				self._endCond()
+		finally:
+			sdareglock.release()
+			if not samelock:
+				sclreglock.release()
+			
 		return True
 		
 	cpdef list read(self, unsigned char i2c_address, unsigned int num_bytes = 1, bint hold_device = False):
-		
+        
 		cdef unsigned char data_read
+		cdef bint status
+		cdef object sdareglock = sda_pin.__class__.registerlock
+		cdef object sclreglock = scl_pin.__class__.registerlock
+		cdef bint samelock = False
 		
 		cdef list bytelist = []
-		self._startCond()
-		cdef bint status = self._writeAddressFrame(i2c_address, True)
-		if not status:
-			return False
-		for _ in range(num_bytes):
-			data_read, status = self._readI2CByte()
+		
+		if type(sda_pin) == type(scl_pin):
+			samelock = True
+			sdareglock.acquire()
+		else:
+			sdareglock.acquire()
+			sclreglock.acquire()
+		try:
+			self._startCond()
+			status = self._writeAddressFrame(i2c_address, True)
 			if not status:
 				return False
-			bytelist.append(data_read)
-		if hold_device:
-			self._repStartCond()
-		else:
-			self._endCond()
+			for _ in range(num_bytes):
+				data_read, status = self._readI2CByte()
+				if not status:
+					return False
+				bytelist.append(data_read)
+			if hold_device:
+				self._repStartCond()
+			else:
+				self._endCond()
+		finally:
+			sdareglock.release()
+			if not samelock:
+				sclreglock.release()
+		
 		return bytelist
