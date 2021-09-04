@@ -123,7 +123,7 @@ cdef class I2C:
 		cdef object sclreglock = self.scl_pin.__class__.registerlock
 		cdef bint samelock = False
 		
-		if type(sda_pin) == type(scl_pin):
+		if type(self.sda_pin) == type(self.scl_pin):
 			samelock = True
 			sdareglock.acquire()
 		else:
@@ -154,13 +154,13 @@ cdef class I2C:
         
 		cdef unsigned char data_read
 		cdef bint status
-		cdef object sdareglock = sda_pin.__class__.registerlock
-		cdef object sclreglock = scl_pin.__class__.registerlock
+		cdef object sdareglock = self.sda_pin.__class__.registerlock
+		cdef object sclreglock = self.scl_pin.__class__.registerlock
 		cdef bint samelock = False
 		
 		cdef list bytelist = []
 		
-		if type(sda_pin) == type(scl_pin):
+		if type(self.sda_pin) == type(self.scl_pin):
 			samelock = True
 			sdareglock.acquire()
 		else:
