@@ -119,8 +119,8 @@ cdef class I2C:
 		
 		cdef unsigned char databyte
 		cdef bint status
-		cdef object sdareglock = sda_pin.__class__.registerlock
-		cdef object sclreglock = scl_pin.__class__.registerlock
+		cdef object sdareglock = self.sda_pin.__class__.registerlock
+		cdef object sclreglock = self.scl_pin.__class__.registerlock
 		cdef bint samelock = False
 		
 		if type(sda_pin) == type(scl_pin):
