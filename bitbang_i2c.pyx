@@ -14,7 +14,7 @@ cdef class I2C:
 	def __init__(self, object i2c_port, object sda_pin, object scl_pin, bint no_force_input = False):
 		self.i2c_port = i2c_port
 		self.portDLL = i2c_port._parallel_port
-		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllow() or no_force_input):
+		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllowed() or no_force_input):
 			self.sda_pin = sda_pin
 		elif not sda_pin.isOutputAllowed():
 			raise Exception("The selected SDA pin is not viable - cannot output")
@@ -37,7 +37,7 @@ cdef class I2C:
 		
 		if pin_isinvert:
 			value = not value
-		cdef unsigned char currentbyte = self.portDLL.DlReadPortReadUchar(pin_register)
+		cdef unsigned char currentbyte = self.portDLL.DlPortReadPortUchar(pin_register)
 		cdef unsigned char bit_mask = 1 << pin_bitindex
 		cdef unsigned char rev_mask = bit_mask ^ 0xFF
 		if value:
@@ -54,7 +54,7 @@ cdef class I2C:
 		
 	cdef bint _getSDA(self):
 		
-		cdef unsigned char currentbyte = self.portDLL.DlReadPortReadUchar(self.sda_register)
+		cdef unsigned char currentbyte = self.portDLL.DlPortReadPortUchar(self.sda_register)
 		cdef unsigned char isolated_bit = (1 << self.sda_bitindex) & currentbyte
 		return isolated_bit >> self.sda_bitindex
 	
@@ -78,7 +78,7 @@ cdef class I2C:
 	
 		self._setSDA(False)
 		for bitindex in range(7, -1, -1):
-			nextbit = ((1 << bitindex) | i2cbyte) >> bitindex
+			nextbit = ((1 << bitindex) & i2cbyte) >> bitindex
 			self._setSDA(nextbit)
 			self._setSCL(True)
 			self._setSCL(False)
@@ -119,8 +119,8 @@ cdef class I2C:
 		
 		cdef unsigned char databyte
 		cdef bint status
-		cdef object sdareglock = self.sda_pin.__class__.registerlock
-		cdef object sclreglock = self.scl_pin.__class__.registerlock
+		cdef object sdareglock = self.sda_pin.__class__.register_lock
+		cdef object sclreglock = self.scl_pin.__class__.register_lock
 		cdef bint samelock = False
 		
 		if type(self.sda_pin) == type(self.scl_pin):
@@ -154,8 +154,8 @@ cdef class I2C:
         
 		cdef unsigned char data_read
 		cdef bint status
-		cdef object sdareglock = self.sda_pin.__class__.registerlock
-		cdef object sclreglock = self.scl_pin.__class__.registerlock
+		cdef object sdareglock = self.sda_pin.__class__.register_lock
+		cdef object sclreglock = self.scl_pin.__class__.register_lock
 		cdef bint samelock = False
 		
 		cdef list bytelist = []

@@ -1406,25 +1406,25 @@ static const char __pyx_k_bitbang_i2c[] = "bitbang_i2c";
 static const char __pyx_k_hold_device[] = "hold_device";
 static const char __pyx_k_hw_inverted[] = "_hw_inverted";
 static const char __pyx_k_i2c_address[] = "i2c_address";
-static const char __pyx_k_isInputAllow[] = "isInputAllow";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
-static const char __pyx_k_registerlock[] = "registerlock";
 static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_parallel_port[] = "_parallel_port";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
+static const char __pyx_k_register_lock[] = "register_lock";
+static const char __pyx_k_isInputAllowed[] = "isInputAllowed";
 static const char __pyx_k_no_force_input[] = "no_force_input";
 static const char __pyx_k_isOutputAllowed[] = "isOutputAllowed";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
 static const char __pyx_k_pyx_unpickle_I2C[] = "__pyx_unpickle_I2C";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_DlReadPortReadUchar[] = "DlReadPortReadUchar";
+static const char __pyx_k_DlPortReadPortUchar[] = "DlPortReadPortUchar";
 static const char __pyx_k_DlPortWritePortUchar[] = "DlPortWritePortUchar";
 static const char __pyx_k_Incompatible_checksums_s_vs_0x6f[] = "Incompatible checksums (%s vs 0x6f69fe3 = (i2c_port, portDLL, scl_bitindex, scl_isinvert, scl_pin, scl_register, sda_bitindex, sda_isinvert, sda_pin, sda_register))";
 static const char __pyx_k_The_selected_SDA_pin_cannot_be_u[] = "The selected SDA pin cannot be used as input - select input-viable pin or use no_force_input=True";
 static const char __pyx_k_The_selected_SDA_pin_is_not_viab[] = "The selected SDA pin is not viable - cannot output";
+static PyObject *__pyx_n_s_DlPortReadPortUchar;
 static PyObject *__pyx_n_s_DlPortWritePortUchar;
-static PyObject *__pyx_n_s_DlReadPortReadUchar;
 static PyObject *__pyx_n_s_I2C;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x6f;
 static PyObject *__pyx_n_s_PickleError;
@@ -1443,7 +1443,7 @@ static PyObject *__pyx_n_s_i2c_address;
 static PyObject *__pyx_n_s_i2c_data;
 static PyObject *__pyx_n_s_i2c_port;
 static PyObject *__pyx_n_s_import;
-static PyObject *__pyx_n_s_isInputAllow;
+static PyObject *__pyx_n_s_isInputAllowed;
 static PyObject *__pyx_n_s_isOutputAllowed;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_name;
@@ -1465,7 +1465,7 @@ static PyObject *__pyx_n_s_reduce;
 static PyObject *__pyx_n_s_reduce_cython;
 static PyObject *__pyx_n_s_reduce_ex;
 static PyObject *__pyx_n_s_register;
-static PyObject *__pyx_n_s_registerlock;
+static PyObject *__pyx_n_s_register_lock;
 static PyObject *__pyx_n_s_release;
 static PyObject *__pyx_n_s_scl_pin;
 static PyObject *__pyx_n_s_sda_pin;
@@ -1610,7 +1610,7 @@ static int __pyx_pf_11bitbang_i2c_3I2C___init__(struct __pyx_obj_11bitbang_i2c_I
  * 	def __init__(self, object i2c_port, object sda_pin, object scl_pin, bint no_force_input = False):
  * 		self.i2c_port = i2c_port             # <<<<<<<<<<<<<<
  * 		self.portDLL = i2c_port._parallel_port
- * 		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllow() or no_force_input):
+ * 		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllowed() or no_force_input):
  */
   __Pyx_INCREF(__pyx_v_i2c_port);
   __Pyx_GIVEREF(__pyx_v_i2c_port);
@@ -1622,7 +1622,7 @@ static int __pyx_pf_11bitbang_i2c_3I2C___init__(struct __pyx_obj_11bitbang_i2c_I
  * 	def __init__(self, object i2c_port, object sda_pin, object scl_pin, bint no_force_input = False):
  * 		self.i2c_port = i2c_port
  * 		self.portDLL = i2c_port._parallel_port             # <<<<<<<<<<<<<<
- * 		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllow() or no_force_input):
+ * 		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllowed() or no_force_input):
  * 			self.sda_pin = sda_pin
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_i2c_port, __pyx_n_s_parallel_port); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
@@ -1636,7 +1636,7 @@ static int __pyx_pf_11bitbang_i2c_3I2C___init__(struct __pyx_obj_11bitbang_i2c_I
   /* "bitbang_i2c.pyx":17
  * 		self.i2c_port = i2c_port
  * 		self.portDLL = i2c_port._parallel_port
- * 		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllow() or no_force_input):             # <<<<<<<<<<<<<<
+ * 		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllowed() or no_force_input):             # <<<<<<<<<<<<<<
  * 			self.sda_pin = sda_pin
  * 		elif not sda_pin.isOutputAllowed():
  */
@@ -1664,7 +1664,7 @@ static int __pyx_pf_11bitbang_i2c_3I2C___init__(struct __pyx_obj_11bitbang_i2c_I
     __pyx_t_2 = __pyx_t_5;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_sda_pin, __pyx_n_s_isInputAllow); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_sda_pin, __pyx_n_s_isInputAllowed); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -1695,7 +1695,7 @@ static int __pyx_pf_11bitbang_i2c_3I2C___init__(struct __pyx_obj_11bitbang_i2c_I
 
     /* "bitbang_i2c.pyx":18
  * 		self.portDLL = i2c_port._parallel_port
- * 		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllow() or no_force_input):
+ * 		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllowed() or no_force_input):
  * 			self.sda_pin = sda_pin             # <<<<<<<<<<<<<<
  * 		elif not sda_pin.isOutputAllowed():
  * 			raise Exception("The selected SDA pin is not viable - cannot output")
@@ -1709,7 +1709,7 @@ static int __pyx_pf_11bitbang_i2c_3I2C___init__(struct __pyx_obj_11bitbang_i2c_I
     /* "bitbang_i2c.pyx":17
  * 		self.i2c_port = i2c_port
  * 		self.portDLL = i2c_port._parallel_port
- * 		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllow() or no_force_input):             # <<<<<<<<<<<<<<
+ * 		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllowed() or no_force_input):             # <<<<<<<<<<<<<<
  * 			self.sda_pin = sda_pin
  * 		elif not sda_pin.isOutputAllowed():
  */
@@ -1717,7 +1717,7 @@ static int __pyx_pf_11bitbang_i2c_3I2C___init__(struct __pyx_obj_11bitbang_i2c_I
   }
 
   /* "bitbang_i2c.pyx":19
- * 		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllow() or no_force_input):
+ * 		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllowed() or no_force_input):
  * 			self.sda_pin = sda_pin
  * 		elif not sda_pin.isOutputAllowed():             # <<<<<<<<<<<<<<
  * 			raise Exception("The selected SDA pin is not viable - cannot output")
@@ -1759,7 +1759,7 @@ static int __pyx_pf_11bitbang_i2c_3I2C___init__(struct __pyx_obj_11bitbang_i2c_I
     __PYX_ERR(0, 20, __pyx_L1_error)
 
     /* "bitbang_i2c.pyx":19
- * 		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllow() or no_force_input):
+ * 		if sda_pin.isOutputAllowed() and (sda_pin.isInputAllowed() or no_force_input):
  * 			self.sda_pin = sda_pin
  * 		elif not sda_pin.isOutputAllowed():             # <<<<<<<<<<<<<<
  * 			raise Exception("The selected SDA pin is not viable - cannot output")
@@ -2020,7 +2020,7 @@ static PyObject *__pyx_f_11bitbang_i2c_3I2C__setPin(struct __pyx_obj_11bitbang_i
  * 
  * 		if pin_isinvert:             # <<<<<<<<<<<<<<
  * 			value = not value
- * 		cdef unsigned char currentbyte = self.portDLL.DlReadPortReadUchar(pin_register)
+ * 		cdef unsigned char currentbyte = self.portDLL.DlPortReadPortUchar(pin_register)
  */
   __pyx_t_1 = (__pyx_v_pin_isinvert != 0);
   if (__pyx_t_1) {
@@ -2029,7 +2029,7 @@ static PyObject *__pyx_f_11bitbang_i2c_3I2C__setPin(struct __pyx_obj_11bitbang_i
  * 
  * 		if pin_isinvert:
  * 			value = not value             # <<<<<<<<<<<<<<
- * 		cdef unsigned char currentbyte = self.portDLL.DlReadPortReadUchar(pin_register)
+ * 		cdef unsigned char currentbyte = self.portDLL.DlPortReadPortUchar(pin_register)
  * 		cdef unsigned char bit_mask = 1 << pin_bitindex
  */
     __pyx_v_value = (!(__pyx_v_value != 0));
@@ -2039,18 +2039,18 @@ static PyObject *__pyx_f_11bitbang_i2c_3I2C__setPin(struct __pyx_obj_11bitbang_i
  * 
  * 		if pin_isinvert:             # <<<<<<<<<<<<<<
  * 			value = not value
- * 		cdef unsigned char currentbyte = self.portDLL.DlReadPortReadUchar(pin_register)
+ * 		cdef unsigned char currentbyte = self.portDLL.DlPortReadPortUchar(pin_register)
  */
   }
 
   /* "bitbang_i2c.pyx":40
  * 		if pin_isinvert:
  * 			value = not value
- * 		cdef unsigned char currentbyte = self.portDLL.DlReadPortReadUchar(pin_register)             # <<<<<<<<<<<<<<
+ * 		cdef unsigned char currentbyte = self.portDLL.DlPortReadPortUchar(pin_register)             # <<<<<<<<<<<<<<
  * 		cdef unsigned char bit_mask = 1 << pin_bitindex
  * 		cdef unsigned char rev_mask = bit_mask ^ 0xFF
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->portDLL, __pyx_n_s_DlReadPortReadUchar); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->portDLL, __pyx_n_s_DlPortReadPortUchar); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = __Pyx_PyInt_From_unsigned_int(__pyx_v_pin_register); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -2076,7 +2076,7 @@ static PyObject *__pyx_f_11bitbang_i2c_3I2C__setPin(struct __pyx_obj_11bitbang_i
 
   /* "bitbang_i2c.pyx":41
  * 			value = not value
- * 		cdef unsigned char currentbyte = self.portDLL.DlReadPortReadUchar(pin_register)
+ * 		cdef unsigned char currentbyte = self.portDLL.DlPortReadPortUchar(pin_register)
  * 		cdef unsigned char bit_mask = 1 << pin_bitindex             # <<<<<<<<<<<<<<
  * 		cdef unsigned char rev_mask = bit_mask ^ 0xFF
  * 		if value:
@@ -2084,7 +2084,7 @@ static PyObject *__pyx_f_11bitbang_i2c_3I2C__setPin(struct __pyx_obj_11bitbang_i
   __pyx_v_bit_mask = (1 << __pyx_v_pin_bitindex);
 
   /* "bitbang_i2c.pyx":42
- * 		cdef unsigned char currentbyte = self.portDLL.DlReadPortReadUchar(pin_register)
+ * 		cdef unsigned char currentbyte = self.portDLL.DlPortReadPortUchar(pin_register)
  * 		cdef unsigned char bit_mask = 1 << pin_bitindex
  * 		cdef unsigned char rev_mask = bit_mask ^ 0xFF             # <<<<<<<<<<<<<<
  * 		if value:
@@ -2326,7 +2326,7 @@ static PyObject *__pyx_f_11bitbang_i2c_3I2C__setSCL(struct __pyx_obj_11bitbang_i
  * 
  * 	cdef bint _getSDA(self):             # <<<<<<<<<<<<<<
  * 
- * 		cdef unsigned char currentbyte = self.portDLL.DlReadPortReadUchar(self.sda_register)
+ * 		cdef unsigned char currentbyte = self.portDLL.DlPortReadPortUchar(self.sda_register)
  */
 
 static int __pyx_f_11bitbang_i2c_3I2C__getSDA(struct __pyx_obj_11bitbang_i2c_I2C *__pyx_v_self) {
@@ -2347,11 +2347,11 @@ static int __pyx_f_11bitbang_i2c_3I2C__getSDA(struct __pyx_obj_11bitbang_i2c_I2C
   /* "bitbang_i2c.pyx":57
  * 	cdef bint _getSDA(self):
  * 
- * 		cdef unsigned char currentbyte = self.portDLL.DlReadPortReadUchar(self.sda_register)             # <<<<<<<<<<<<<<
+ * 		cdef unsigned char currentbyte = self.portDLL.DlPortReadPortUchar(self.sda_register)             # <<<<<<<<<<<<<<
  * 		cdef unsigned char isolated_bit = (1 << self.sda_bitindex) & currentbyte
  * 		return isolated_bit >> self.sda_bitindex
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->portDLL, __pyx_n_s_DlReadPortReadUchar); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->portDLL, __pyx_n_s_DlPortReadPortUchar); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = __Pyx_PyInt_From_unsigned_int(__pyx_v_self->sda_register); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -2377,7 +2377,7 @@ static int __pyx_f_11bitbang_i2c_3I2C__getSDA(struct __pyx_obj_11bitbang_i2c_I2C
 
   /* "bitbang_i2c.pyx":58
  * 
- * 		cdef unsigned char currentbyte = self.portDLL.DlReadPortReadUchar(self.sda_register)
+ * 		cdef unsigned char currentbyte = self.portDLL.DlPortReadPortUchar(self.sda_register)
  * 		cdef unsigned char isolated_bit = (1 << self.sda_bitindex) & currentbyte             # <<<<<<<<<<<<<<
  * 		return isolated_bit >> self.sda_bitindex
  * 
@@ -2385,7 +2385,7 @@ static int __pyx_f_11bitbang_i2c_3I2C__getSDA(struct __pyx_obj_11bitbang_i2c_I2C
   __pyx_v_isolated_bit = ((1 << __pyx_v_self->sda_bitindex) & __pyx_v_currentbyte);
 
   /* "bitbang_i2c.pyx":59
- * 		cdef unsigned char currentbyte = self.portDLL.DlReadPortReadUchar(self.sda_register)
+ * 		cdef unsigned char currentbyte = self.portDLL.DlPortReadPortUchar(self.sda_register)
  * 		cdef unsigned char isolated_bit = (1 << self.sda_bitindex) & currentbyte
  * 		return isolated_bit >> self.sda_bitindex             # <<<<<<<<<<<<<<
  * 
@@ -2399,7 +2399,7 @@ static int __pyx_f_11bitbang_i2c_3I2C__getSDA(struct __pyx_obj_11bitbang_i2c_I2C
  * 
  * 	cdef bint _getSDA(self):             # <<<<<<<<<<<<<<
  * 
- * 		cdef unsigned char currentbyte = self.portDLL.DlReadPortReadUchar(self.sda_register)
+ * 		cdef unsigned char currentbyte = self.portDLL.DlPortReadPortUchar(self.sda_register)
  */
 
   /* function exit code */
@@ -3176,13 +3176,13 @@ static int __pyx_f_11bitbang_i2c_3I2C_write(struct __pyx_obj_11bitbang_i2c_I2C *
   /* "bitbang_i2c.pyx":122
  * 		cdef unsigned char databyte
  * 		cdef bint status
- * 		cdef object sdareglock = self.sda_pin.__class__.registerlock             # <<<<<<<<<<<<<<
- * 		cdef object sclreglock = self.scl_pin.__class__.registerlock
+ * 		cdef object sdareglock = self.sda_pin.__class__.register_lock             # <<<<<<<<<<<<<<
+ * 		cdef object sclreglock = self.scl_pin.__class__.register_lock
  * 		cdef bint samelock = False
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->sda_pin, __pyx_n_s_class); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_registerlock); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_register_lock); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_sdareglock = __pyx_t_2;
@@ -3190,22 +3190,22 @@ static int __pyx_f_11bitbang_i2c_3I2C_write(struct __pyx_obj_11bitbang_i2c_I2C *
 
   /* "bitbang_i2c.pyx":123
  * 		cdef bint status
- * 		cdef object sdareglock = self.sda_pin.__class__.registerlock
- * 		cdef object sclreglock = self.scl_pin.__class__.registerlock             # <<<<<<<<<<<<<<
+ * 		cdef object sdareglock = self.sda_pin.__class__.register_lock
+ * 		cdef object sclreglock = self.scl_pin.__class__.register_lock             # <<<<<<<<<<<<<<
  * 		cdef bint samelock = False
  * 
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->scl_pin, __pyx_n_s_class); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_registerlock); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_register_lock); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_sclreglock = __pyx_t_1;
   __pyx_t_1 = 0;
 
   /* "bitbang_i2c.pyx":124
- * 		cdef object sdareglock = self.sda_pin.__class__.registerlock
- * 		cdef object sclreglock = self.scl_pin.__class__.registerlock
+ * 		cdef object sdareglock = self.sda_pin.__class__.register_lock
+ * 		cdef object sclreglock = self.scl_pin.__class__.register_lock
  * 		cdef bint samelock = False             # <<<<<<<<<<<<<<
  * 
  * 		if type(self.sda_pin) == type(self.scl_pin):
@@ -4082,13 +4082,13 @@ static PyObject *__pyx_f_11bitbang_i2c_3I2C_read(struct __pyx_obj_11bitbang_i2c_
   /* "bitbang_i2c.pyx":157
  * 		cdef unsigned char data_read
  * 		cdef bint status
- * 		cdef object sdareglock = self.sda_pin.__class__.registerlock             # <<<<<<<<<<<<<<
- * 		cdef object sclreglock = self.scl_pin.__class__.registerlock
+ * 		cdef object sdareglock = self.sda_pin.__class__.register_lock             # <<<<<<<<<<<<<<
+ * 		cdef object sclreglock = self.scl_pin.__class__.register_lock
  * 		cdef bint samelock = False
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->sda_pin, __pyx_n_s_class); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 157, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_registerlock); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 157, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_register_lock); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 157, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_sdareglock = __pyx_t_2;
@@ -4096,22 +4096,22 @@ static PyObject *__pyx_f_11bitbang_i2c_3I2C_read(struct __pyx_obj_11bitbang_i2c_
 
   /* "bitbang_i2c.pyx":158
  * 		cdef bint status
- * 		cdef object sdareglock = self.sda_pin.__class__.registerlock
- * 		cdef object sclreglock = self.scl_pin.__class__.registerlock             # <<<<<<<<<<<<<<
+ * 		cdef object sdareglock = self.sda_pin.__class__.register_lock
+ * 		cdef object sclreglock = self.scl_pin.__class__.register_lock             # <<<<<<<<<<<<<<
  * 		cdef bint samelock = False
  * 
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->scl_pin, __pyx_n_s_class); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_registerlock); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 158, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_register_lock); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_sclreglock = __pyx_t_1;
   __pyx_t_1 = 0;
 
   /* "bitbang_i2c.pyx":159
- * 		cdef object sdareglock = self.sda_pin.__class__.registerlock
- * 		cdef object sclreglock = self.scl_pin.__class__.registerlock
+ * 		cdef object sdareglock = self.sda_pin.__class__.register_lock
+ * 		cdef object sclreglock = self.scl_pin.__class__.register_lock
  * 		cdef bint samelock = False             # <<<<<<<<<<<<<<
  * 
  * 		cdef list bytelist = []
@@ -5942,8 +5942,8 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
+  {&__pyx_n_s_DlPortReadPortUchar, __pyx_k_DlPortReadPortUchar, sizeof(__pyx_k_DlPortReadPortUchar), 0, 0, 1, 1},
   {&__pyx_n_s_DlPortWritePortUchar, __pyx_k_DlPortWritePortUchar, sizeof(__pyx_k_DlPortWritePortUchar), 0, 0, 1, 1},
-  {&__pyx_n_s_DlReadPortReadUchar, __pyx_k_DlReadPortReadUchar, sizeof(__pyx_k_DlReadPortReadUchar), 0, 0, 1, 1},
   {&__pyx_n_s_I2C, __pyx_k_I2C, sizeof(__pyx_k_I2C), 0, 0, 1, 1},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0x6f, __pyx_k_Incompatible_checksums_s_vs_0x6f, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x6f), 0, 0, 1, 0},
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
@@ -5962,7 +5962,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_i2c_data, __pyx_k_i2c_data, sizeof(__pyx_k_i2c_data), 0, 0, 1, 1},
   {&__pyx_n_s_i2c_port, __pyx_k_i2c_port, sizeof(__pyx_k_i2c_port), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
-  {&__pyx_n_s_isInputAllow, __pyx_k_isInputAllow, sizeof(__pyx_k_isInputAllow), 0, 0, 1, 1},
+  {&__pyx_n_s_isInputAllowed, __pyx_k_isInputAllowed, sizeof(__pyx_k_isInputAllowed), 0, 0, 1, 1},
   {&__pyx_n_s_isOutputAllowed, __pyx_k_isOutputAllowed, sizeof(__pyx_k_isOutputAllowed), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
@@ -5984,7 +5984,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_reduce_cython, __pyx_k_reduce_cython, sizeof(__pyx_k_reduce_cython), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_ex, __pyx_k_reduce_ex, sizeof(__pyx_k_reduce_ex), 0, 0, 1, 1},
   {&__pyx_n_s_register, __pyx_k_register, sizeof(__pyx_k_register), 0, 0, 1, 1},
-  {&__pyx_n_s_registerlock, __pyx_k_registerlock, sizeof(__pyx_k_registerlock), 0, 0, 1, 1},
+  {&__pyx_n_s_register_lock, __pyx_k_register_lock, sizeof(__pyx_k_register_lock), 0, 0, 1, 1},
   {&__pyx_n_s_release, __pyx_k_release, sizeof(__pyx_k_release), 0, 0, 1, 1},
   {&__pyx_n_s_scl_pin, __pyx_k_scl_pin, sizeof(__pyx_k_scl_pin), 0, 0, 1, 1},
   {&__pyx_n_s_sda_pin, __pyx_k_sda_pin, sizeof(__pyx_k_sda_pin), 0, 0, 1, 1},
