@@ -95,7 +95,7 @@ cdef class PWMCycle:
 		cdef unsigned char bitmask = 1 << bitindex
 		cdef unsigned char byteresult = (bitmask ^ portregisterbyte)
         
-		cdef object registerlock = self._pin.__class__.registerlock
+		cdef object registerlock = self._pin.__class__.register_lock
 		
 		while not self._end_cycle.is_set():
 			if not self._pause_cycle.is_set():
